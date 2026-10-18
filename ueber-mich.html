@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über mich — Larissa Vock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="logo">LARISSA<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">START</a></li>
+    <li><a href="ueber-mich.html" class="active">ÜBER MICH</a></li>
+    <li><a href="portfolio.html">PORTFOLIO</a></li>
+    <li><a href="kontakt.html">KONTAKT</a></li>
+  </ul>
+</nav>
+
+<div class="track-overlay" aria-hidden="true">
+  <svg id="trackSvg" viewBox="0 0 100 1000">
+    <path class="track-band" id="trackBand" d=""></path>
+    <path class="track-edge" id="trackEdge" d=""></path>
+    <path class="track-path" id="trackPath" d=""></path>
+    <path class="track-done" id="trackDone" d=""></path>
+  </svg>
+</div>
+
+<div class="track-gates-bg" id="trackGatesBg" aria-hidden="true">
+  <svg class="starthaus" id="starthaus" viewBox="0 0 96 80" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Boden -->
+    <line x1="2" y1="73" x2="94" y2="73" stroke="var(--cream)" stroke-opacity="0.35" stroke-width="1.2"/>
+    <!-- Hütte -->
+    <rect x="12" y="38" width="46" height="35" fill="var(--black-deep)" stroke="var(--cream)" stroke-width="1.6"/>
+    <!-- flaches Dach mit Überstand -->
+    <rect x="8" y="32" width="54" height="6" fill="var(--cream)"/>
+    <!-- Fensterband -->
+    <rect x="18" y="45" width="26" height="9" fill="var(--red)" fill-opacity="0.28" stroke="var(--cream)" stroke-opacity="0.8" stroke-width="1.1"/>
+    <!-- Tür -->
+    <rect x="48" y="52" width="6" height="21" fill="var(--cream)" fill-opacity="0.18" stroke="var(--cream)" stroke-opacity="0.6" stroke-width="1"/>
+    <!-- Antenne -->
+    <line x1="52" y1="32" x2="52" y2="14" stroke="var(--cream)" stroke-width="1.4"/>
+    <circle cx="52" cy="13" r="1.8" fill="var(--red)" stroke="none"/>
+    <!-- Startportal -->
+    <line x1="70" y1="73" x2="70" y2="42" stroke="var(--cream)" stroke-width="2"/>
+    <line x1="88" y1="73" x2="88" y2="42" stroke="var(--cream)" stroke-width="2"/>
+    <line x1="70" y1="45" x2="88" y2="45" stroke="var(--red)" stroke-width="2.4"/>
+  </svg>
+</div>
+
+<div class="track-markers" id="trackMarkers" aria-hidden="true">
+  <div class="racer" id="racer">
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="8" r="4.5" fill="var(--red)"/>
+      <path d="M23 12 L15 24 L9 33" stroke="var(--red)" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      <path d="M23 12 L29 21 L35 17" stroke="var(--red)" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      <line x1="15" y1="24" x2="27" y2="21" stroke="var(--red)" stroke-width="3.2" stroke-linecap="round"/>
+      <line x1="2" y1="36" x2="17" y2="31" stroke="var(--cream)" stroke-width="3.4" stroke-linecap="round"/>
+      <line x1="20" y1="30" x2="35" y2="27" stroke="var(--cream)" stroke-width="3.4" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<div class="hud" id="hud" aria-hidden="true">
+  <span class="current" id="splitLabel">START</span>
+  <span class="item"><i>ZEIT</i><b class="val" id="clockDisplay">00:00.00</b></span>
+  <span class="item"><i>HÖHE</i><b class="val" id="altDisplay">2315 M</b></span>
+  <span class="item"><i>TEMPO</i><b class="val" id="speedDisplay">0 KM/H</b></span>
+  <div class="hud-bar"><span id="hudBar"></span></div>
+</div>
+
+<main class="track-main">
+
+  <section id="welcome" data-intro="true">
+    <svg class="mountains-bg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="mFar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E8068" stop-opacity="0.30"/><stop offset="1" stop-color="#5E8068" stop-opacity="0"/></linearGradient>
+        <linearGradient id="mMid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A7058" stop-opacity="0.55"/><stop offset="0.7" stop-color="#2F5240" stop-opacity="0.25"/><stop offset="1" stop-color="#1F3B29" stop-opacity="0"/></linearGradient>
+        <linearGradient id="mNear" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2F5240" stop-opacity="0.85"/><stop offset="1" stop-color="#142A1C" stop-opacity="0"/></linearGradient>
+        <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3E3DA" stop-opacity="0.55"/><stop offset="1" stop-color="#F3E3DA" stop-opacity="0.05"/></linearGradient>
+      </defs>
+      <path d="M0,600 L0,452.7 L16,446.2 L32,426.6 L48,429.1 L64,411.6 L80,407.8 L96,408.0 L112,394.5 L128,400.8 L144,391.4 L160,398.9 L176,400.4 L192,397.1 L208,394.0 L224,414.3 L240,419.8 L256,420.2 L272,423.0 L288,440.1 L304,453.8 L320,452.4 L336,468.5 L352,437.5 L368,433.5 L384,420.8 L400,405.9 L416,387.3 L432,363.3 L448,363.8 L464,345.3 L480,336.0 L496,335.8 L512,329.4 L528,339.1 L544,342.0 L560,344.7 L576,343.4 L592,358.8 L608,373.4 L624,381.7 L640,399.2 L656,417.7 L672,423.4 L688,440.6 L704,464.6 L720,472.0 L736,482.8 L752,466.4 L768,459.6 L784,458.4 L800,434.4 L816,441.5 L832,425.5 L848,409.2 L864,412.2 L880,397.1 L896,398.6 L912,379.6 L928,372.4 L944,372.3 L960,363.6 L976,373.8 L992,366.5 L1008,370.4 L1024,373.9 L1040,381.0 L1056,379.2 L1072,384.1 L1088,401.5 L1104,406.4 L1120,427.8 L1136,424.8 L1152,436.0 L1168,439.2 L1184,448.4 L1200,444.7 L1216,427.6 L1232,406.7 L1248,404.5 L1264,381.0 L1280,373.0 L1296,361.4 L1312,351.5 L1328,328.2 L1344,334.0 L1360,327.1 L1376,322.3 L1392,313.3 L1408,332.4 L1424,330.8 L1440,336.9 L1456,340.3 L1472,353.5 L1488,365.9 L1504,391.9 L1520,404.2 L1536,420.5 L1552,425.2 L1568,438.5 L1584,468.8 L1600,481.6 L1600,600 Z" fill="url(#mFar)"/>
+      <path d="M0,600 L0,366.9 L16,358.1 L32,344.8 L48,338.3 L64,346.7 L80,356.1 L96,349.4 L112,358.4 L128,362.7 L144,363.8 L160,384.5 L176,404.0 L192,416.5 L208,430.4 L224,463.3 L240,454.6 L256,439.0 L272,413.1 L288,390.5 L304,376.2 L320,350.2 L336,333.6 L352,295.5 L368,291.1 L384,274.1 L400,257.7 L416,251.6 L432,244.5 L448,256.0 L464,266.2 L480,275.6 L496,294.8 L512,308.7 L528,341.9 L544,343.3 L560,376.4 L576,414.9 L592,436.5 L608,448.1 L624,430.4 L640,419.5 L656,381.7 L672,360.7 L688,359.5 L704,344.7 L720,343.5 L736,333.2 L752,319.3 L768,317.5 L784,300.9 L800,322.0 L816,331.5 L832,314.0 L848,337.0 L864,361.1 L880,365.2 L896,396.1 L912,399.4 L928,404.4 L944,425.1 L960,440.8 L976,429.7 L992,401.6 L1008,380.6 L1024,336.2 L1040,315.4 L1056,281.7 L1072,269.0 L1088,249.2 L1104,213.3 L1120,193.1 L1136,186.2 L1152,182.1 L1168,181.8 L1184,189.4 L1200,214.3 L1216,221.5 L1232,245.5 L1248,277.4 L1264,302.7 L1280,322.5 L1296,350.6 L1312,365.9 L1328,385.1 L1344,424.5 L1360,413.4 L1376,393.7 L1392,376.4 L1408,375.1 L1424,362.3 L1440,346.7 L1456,334.2 L1472,323.1 L1488,303.2 L1504,290.5 L1520,290.5 L1536,302.3 L1552,302.4 L1568,306.4 L1584,337.4 L1600,334.6 L1600,600 Z" fill="url(#mMid)"/>
+      <polygon points="352,295.5 368,291.1 384,274.1 400,257.7 416,251.6 432,244.5 448,256.0 464,266.2 480,275.6 496,294.8 512,308.7 512,349.7 496,322.8 480,319.6 464,290.2 448,296.0 432,271.5 416,294.6 400,280.7 384,320.1 368,317.1 352,337.5" fill="url(#snow)"/><polygon points="1088,249.2 1104,213.3 1120,193.1 1136,186.2 1152,182.1 1168,181.8 1184,189.4 1200,214.3 1216,221.5 1232,245.5 1232,285.5 1216,248.5 1200,257.3 1184,212.4 1168,227.8 1152,208.1 1136,228.2 1120,215.1 1104,258.3 1088,274.2" fill="url(#snow)"/><polygon points="1456,334.2 1472,323.1 1488,303.2 1504,290.5 1520,290.5 1536,302.3 1552,302.4 1568,306.4 1584,337.4 1584,379.4 1568,328.4 1552,347.4 1536,327.3 1520,331.5 1504,318.5 1488,347.2 1472,347.1 1456,374.2" fill="url(#snow)"/><polygon points="16,358.1 32,344.8 48,338.3 64,346.7 80,356.1 96,349.4 112,358.4 112,398.4 96,376.4 80,399.1 64,369.7 48,384.3 32,370.8 16,400.1" fill="url(#snow)"/>
+      <path d="M0,600 L0,510.6 L16,504.8 L32,497.1 L48,493.4 L64,490.1 L80,470.5 L96,470.3 L112,453.7 L128,443.0 L144,446.2 L160,439.7 L176,424.3 L192,423.6 L208,430.0 L224,428.3 L240,426.5 L256,412.8 L272,415.6 L288,429.7 L304,420.8 L320,422.4 L336,433.6 L352,445.4 L368,448.7 L384,463.8 L400,474.0 L416,465.1 L432,479.5 L448,490.4 L464,491.6 L480,504.6 L496,489.8 L512,483.7 L528,488.0 L544,480.7 L560,473.7 L576,468.7 L592,457.1 L608,458.1 L624,451.0 L640,452.7 L656,435.9 L672,444.0 L688,441.0 L704,438.5 L720,433.4 L736,443.6 L752,437.0 L768,447.6 L784,451.0 L800,455.7 L816,469.9 L832,468.0 L848,478.8 L864,488.4 L880,480.8 L896,499.0 L912,500.5 L928,502.9 L944,507.4 L960,500.8 L976,486.1 L992,473.7 L1008,457.8 L1024,458.2 L1040,438.4 L1056,432.8 L1072,421.7 L1088,403.2 L1104,399.5 L1120,391.3 L1136,382.1 L1152,375.4 L1168,381.5 L1184,378.0 L1200,381.3 L1216,384.4 L1232,386.0 L1248,396.7 L1264,403.1 L1280,413.2 L1296,414.9 L1312,430.2 L1328,438.4 L1344,449.0 L1360,473.2 L1376,479.5 L1392,484.1 L1408,486.5 L1424,489.0 L1440,479.4 L1456,464.2 L1472,462.2 L1488,451.5 L1504,448.1 L1520,432.4 L1536,426.9 L1552,423.1 L1568,436.4 L1584,428.1 L1600,432.5 L1600,600 Z" fill="url(#mNear)"/>
+    </svg>
+    <div class="welcome-copy">
+      <div class="welcome-kicker mono">LAUBERHORN · WENGEN · 4,5 KM</div>
+      <h2>Bereit für die Abfahrt?</h2>
+      <p class="desc">Lass uns gemeinsam die Lauberhorn-Abfahrt bestreiten. Wir fahren alle Etappen meines
+      Werdegangs ab und entdecken unterwegs auch, was mich neben der Piste antreibt.</p>
+    </div>
+    <div class="scroll-cue mono" aria-hidden="true"><span>SCROLL</span><i></i></div>
+  </section>
+
+  <section id="hero" class="align-right" data-checkpoint="Start">
+    <div class="content-block">
+    <div class="eyebrow mono">START — LAUBERHORN, WENGEN</div>
+    <h2>3… 2… 1… START!</h2>
+    <p class="desc">Ab jetzt zählt jede Sekunde. Scroll weiter und verfolg oben live,
+    wie gut du im Rennen bist.</p>
+    </div>
+  </section>
+
+  <section class="alt" data-checkpoint="Hundschopf">
+    <div class="content-block">
+    <div class="eyebrow mono">01 — HUNDSCHOPF</div>
+    <h2>Berufserfahrung</h2>
+
+    <p class="desc" style="margin-bottom: 4px;"><strong>Assistentin Zeitungsredaktion (befristet)</strong>, CH Media, Aarau</p>
+    <div class="sub mono">04/2024–06/2024</div>
+    <ul class="bullets">
+      <li>Bearbeitung redaktioneller Anfragen per Telefon und E-Mail</li>
+      <li>Unterstützung bei Honorarerfassung und -prüfung</li>
+      <li>Koordination administrativer Abläufe, u. a. Dienstplanung, Absenzen und Spesen</li>
+      <li>Bearbeitung von Akkreditierungsanfragen und Ombudsstellen-Themen</li>
+    </ul>
+
+    <p class="desc" style="margin-top: 24px; margin-bottom: 4px;"><strong>Assistentin Werbung/Marketing</strong>, Möbel Pfister AG, Suhr</p>
+    <div class="sub mono">08/2022–07/2023</div>
+    <ul class="bullets">
+      <li>Unterstützung der Projektleitung bei Kommunikationskampagnen</li>
+      <li>Mitarbeit bei der Entwicklung von Werbemitteln</li>
+      <li>Erstellung von Präsentationen</li>
+      <li>Planung, Erstellung und Auswertung von Newslettern</li>
+      <li>Erarbeitung von Briefings und Timings</li>
+    </ul>
+
+    <p class="desc" style="margin-top: 24px; margin-bottom: 4px;"><strong>Kauffrau EFZ mit Berufsmaturität</strong>, Möbel Pfister AG, Suhr</p>
+    <div class="sub mono">08/2019–07/2022</div>
+    <ul class="bullets">
+      <li>Einsätze in Marketing, Administration und Kundenservice</li>
+      <li>Erstellung von Newslettern und Konkurrenzanalysen</li>
+      <li>Bearbeitung von Lieferanten- und Kundenanliegen</li>
+    </ul>
+    </div>
+  </section>
+
+  <section class="align-right" data-checkpoint="Minschkante">
+    <div class="content-block">
+    <div class="eyebrow mono">02 — MINSCHKANTE</div>
+    <h2>Ausbildung</h2>
+
+    <p class="desc" style="margin-bottom: 4px;"><strong>Bachelor Kommunikation &amp; Medien</strong>, ZHAW Angewandte Linguistik, Winterthur</p>
+    <div class="sub mono">seit 09/2024</div>
+
+    <p class="desc" style="margin-top: 24px; margin-bottom: 4px;"><strong>Kauffrau EFZ mit Berufsmaturität</strong>, Englisch Immersion, Handelsschule KV Aarau</p>
+    <div class="sub mono">08/2019–07/2022</div>
+    </div>
+  </section>
+
+  <section id="skills" class="alt" data-checkpoint="Silberhornsprung">
+    <div class="content-block">
+    <div class="eyebrow mono">03 — SILBERHORNSPRUNG</div>
+    <h2>Kompetenzen</h2>
+    <div class="skills-grid skills-aligned">
+      <div class="sk-cell">
+        <div class="tags-label mono">PERSÖNLICHE STÄRKEN</div>
+        <div class="tags">
+          <div class="tag mono">Zuverlässig</div>
+          <div class="tag mono">Kreativ</div>
+          <div class="tag mono">Teamorientiert</div>
+          <div class="tag mono">Selbstständig</div>
+        </div>
+      </div>
+      <div class="sk-cell">
+        <div class="tags-label mono">SPRACHEN</div>
+        <div class="skill-row"><div class="name mono">DEUTSCH (MUTTERSPRACHE)</div><div class="bar"><span data-w="100"></span></div></div>
+        <div class="skill-row"><div class="name mono">ENGLISCH (C1)</div><div class="bar"><span data-w="85"></span></div></div>
+        <div class="skill-row"><div class="name mono">FRANZÖSISCH (B1)</div><div class="bar"><span data-w="60"></span></div></div>
+      </div>
+      <div class="sk-cell">
+        <div class="tags-label mono">FACHKOMPETENZEN</div>
+        <ul class="bullets">
+          <li>Content Creation</li>
+          <li>Newsletter &amp; Kampagnen Unterstützung</li>
+          <li>Präsentationen &amp; Briefings</li>
+          <li>Social Media</li>
+          <li>Corporate Communications</li>
+          <li>Redaktion / Medien Administration</li>
+        </ul>
+      </div>
+      <div class="sk-cell">
+        <div class="tags-label mono">TOOLKENNTNISSE</div>
+        <ul class="bullets">
+          <li>Microsoft Office (SIZ ICT Advanced-User)</li>
+          <li>SAP</li>
+          <li>Adobe Photoshop, InDesign, Premiere Pro, Audition</li>
+          <li>Canva</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="align-right" data-checkpoint="Seilersprung">
+    <div class="content-block">
+    <div class="eyebrow mono">04 — SEILERSPRUNG</div>
+    <h2>Neben der Piste</h2>
+    <p class="desc">Neben dem Beruflichen bewegen mich vor allem drei Dinge: Sport, Musik und das Reisen.</p>
+
+    <div class="carousel" id="interestsCarousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><div class="cap mono">SPORT</div><div class="photo-row n2"><div class="photo"><img src="sport-ski.jpg" alt="Larissa beim Skifahren" style="object-position:center 62%"></div><div class="photo"><img src="sport-akro.jpg" alt="Larissa beim Akrobatik-Auftritt" style="object-position:center 35%"></div></div></div>
+        <div class="carousel-slide"><div class="cap mono">SPORT ALS FAN</div><div class="photo-row n3"><div class="photo"><img src="fan-f1.jpg" alt="Formel 1 in Silverstone" style="object-position:center 88%"></div><div class="photo"><img src="fan-hockey.jpg" alt="Eishockey-WM in Zürich" style="object-position:center 55%"></div><div class="photo"><img src="fan-sansiro.jpg" alt="Fussball in San Siro, Inter gegen Monaco" style="object-position:center 50%"></div></div></div>
+        <div class="carousel-slide"><div class="cap mono">MUSIK</div><div class="photo-row n2"><div class="photo"><img src="musik-festival.jpg" alt="Festival mit Feuerwerk und Bühne" style="object-position:center 55%"></div><div class="photo"><img src="musik-dj.jpg" alt="DJ auf der Festivalbühne" style="object-position:center 60%"></div></div></div>
+        <div class="carousel-slide"><div class="cap mono">REISEN</div><div class="photo-row n3"><div class="photo"><img src="reise-sonnenuntergang.jpg" alt="Sonnenuntergang am Meer mit Surfern" style="object-position:center 50%"></div><div class="photo"><img src="reise-affen.jpg" alt="Zwei Affen über dem Meer" style="object-position:center 65%"></div><div class="photo"><img src="reise-surfbretter.jpg" alt="Surfbretter am Strand" style="object-position:center 40%"></div></div></div>
+      </div>
+      <button class="carousel-btn prev" id="carouselPrev" aria-label="Zurück">‹</button>
+      <button class="carousel-btn next" id="carouselNext" aria-label="Weiter">›</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <p class="desc" id="carouselCaption" style="margin-top: 18px;">Sport begleitet mich, seit ich klein bin. Ich bin seit meiner Kindheit im Turnverein, fahre Ski
+    und gehe gerne wandern. Auch probiere ich immer wieder gerne etwas Neues aus.</p>
+
+    <p class="desc" id="carouselGag" style="margin-top: 22px; font-style: italic; display: none;">Und natürlich halte ich das alles am
+    liebsten mit der Kamera fest und produziere eine passende Instagram-Story ;)</p>
+    </div>
+  </section>
+
+  <section id="ziel" data-checkpoint="Ziel">
+    <div class="ziel-copy content-block">
+      <div class="eyebrow mono">ZIEL — WENGEN</div>
+      <h2>Ziel!</h2>
+      <div class="final-time mono"><span class="ft-label">ZEIT</span><span id="raceTime">00:00.00</span></div>
+      <p class="desc">
+        Und nun stehe ich hier, mitten im Studium für Kommunikation und Medien und mit einigen
+        Praxiserfahrungen im Gepäck. Ich freue mich darauf, das nächste Rennen gemeinsam mit euch zu bestreiten.
+      </p>
+      <div class="contact-links">
+        <a href="Lebenslauf_Larissa_Vock.pdf" download class="cta-btn green">LEBENSLAUF HERUNTERLADEN</a>
+      </div>
+    </div>
+    <svg class="village" viewBox="0 0 1600 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#0E2016" opacity="0.85"><path d="M10,120 V84 L37,66 L64,84 V120 Z"/><path d="M108,120 V94 L139,80 L170,94 V120 Z"/><path d="M214,120 V94 L241,80 L268,94 V120 Z"/><path d="M296,120 V94 L319,80 L342,94 V120 Z"/><path d="M386,120 V84 L403,66 L420,84 V120 Z"/><path d="M464,120 V98 L484,76 L504,98 V120 Z"/><path d="M510,120 V98 L527,84 L544,98 V120 Z"/><path d="M554,120 V98 L585,80 L616,98 V120 Z"/><path d="M632,120 V94 L659,72 L686,94 V120 Z"/><path d="M696,120 V84 L719,70 L742,84 V120 Z"/><path d="M748,120 V90 L775,72 L802,90 V120 Z"/><path d="M846,120 V90 L863,72 L880,90 V120 Z"/><path d="M890,120 V90 L921,76 L952,90 V120 Z"/><path d="M958,120 V98 L989,80 L1020,98 V120 Z"/><path d="M1026,120 V84 L1049,70 L1072,84 V120 Z"/><path d="M1078,120 V94 L1095,80 L1112,94 V120 Z"/><path d="M1118,120 V84 L1145,62 L1172,84 V120 Z"/><path d="M1200,120 V98 L1227,76 L1254,98 V120 Z"/><path d="M1264,120 V90 L1287,76 L1310,90 V120 Z"/><path d="M1326,120 V98 L1349,80 L1372,98 V120 Z"/><path d="M1378,120 V94 L1398,72 L1418,94 V120 Z"/><path d="M1424,120 V98 L1441,80 L1458,98 V120 Z"/><path d="M1486,120 V94 L1506,76 L1526,94 V120 Z"/><path d="M1010,120 V62 H1032 V120 Z"/><path d="M1007,62 L1021,24 L1035,62 Z"/></g></svg>
+  </section>
+
+</main>
+
+<script>
+  const sections = Array.from(document.querySelectorAll('main.track-main section[data-checkpoint]'));
+  const trackOverlayEl = document.querySelector('.track-overlay');
+  const trackGatesBg = document.getElementById('trackGatesBg');
+  const trackMarkers = document.getElementById('trackMarkers');
+  const hud = document.getElementById('hud');
+  const trackPath = document.getElementById('trackPath');
+  const racer = document.getElementById('racer');
+  const clock = document.getElementById('clockDisplay');
+  const altDisplay = document.getElementById('altDisplay');
+  const speedDisplay = document.getElementById('speedDisplay');
+  const splitLabel = document.getElementById('splitLabel');
+  const hudBar = document.getElementById('hudBar');
+  const raceTime = document.getElementById('raceTime');
+
+  const ALT_START = 2315;
+  const ALT_END = 1287;
+
+  const n = sections.length - 1;
+  const INSET = 40; // Einrückung in viewBox-Einheiten (0-1000), verhindert Anschnitt am Rand
+  const ys = [];
+  for (let i = 0; i <= n; i++){
+    ys.push(INSET + (i / n) * (1000 - 2 * INSET));
+  }
+  const xs = [12, 88, 22, 95, 8, 78, 30];
+  while (xs.length < n + 1) xs.push(xs[xs.length % 7]);
+  const trackSvg = document.getElementById('trackSvg');
+  const trackBand = document.getElementById('trackBand');
+  const trackEdge = document.getElementById('trackEdge');
+  const trackDone = document.getElementById('trackDone');
+  let VW = 100, VH = 1000, totalLength = 1, gateLens = [];
+
+  // Strecke in echten Pixelkoordinaten, damit Linien nicht verzerrt werden
+  function buildTrack(){
+    VW = window.innerWidth;
+    VH = window.innerHeight - parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || 68);
+    trackSvg.setAttribute('viewBox', `0 0 ${VW} ${VH}`);
+    const X = v => (v / 100 * VW).toFixed(1);
+    const Y = v => (v / 1000 * VH).toFixed(1);
+    let d = `M ${X(xs[0])} ${Y(ys[0])}`;
+    for (let i = 0; i < n; i++){
+      const cy = (ys[i] + ys[i + 1]) / 2;
+      d += ` C ${X(xs[i])} ${Y(cy)}, ${X(xs[i + 1])} ${Y(cy)}, ${X(xs[i + 1])} ${Y(ys[i + 1])}`;
+    }
+    [trackPath, trackBand, trackEdge, trackDone].forEach(el => el.setAttribute('d', d));
+    totalLength = trackPath.getTotalLength();
+    // Pfadlänge am jeweiligen Tor (y ist entlang der Strecke steigend)
+    gateLens = ys.map(yv => {
+      const target = yv / 1000 * VH;
+      let lo = 0, hi = totalLength;
+      for (let it = 0; it < 28; it++){
+        const mid = (lo + hi) / 2;
+        if (trackPath.getPointAtLength(mid).y < target) lo = mid; else hi = mid;
+      }
+      return (lo + hi) / 2;
+    });
+    gateLens[0] = 0;
+    gateLens[gateLens.length - 1] = totalLength;
+    trackDone.style.strokeDasharray = totalLength;
+    trackDone.style.strokeDashoffset = totalLength;
+  }
+
+  const starthaus = document.getElementById('starthaus');
+  starthaus.style.left = xs[0] + '%';
+  starthaus.style.top = (ys[0] / 10) + '%';
+
+  const checkpointEls = sections.map((sec, i) => {
+    if (i === 0){ return starthaus; }
+    const gate = document.createElement('div');
+    gate.className = 'gate';
+    gate.style.left = xs[i] + '%';
+    gate.style.top = (ys[i] / 10) + '%';
+    gate.innerHTML = '<span class="flag-l"></span><span class="flag-r"></span><span class="gate-label mono">' + sec.dataset.checkpoint.toUpperCase() + '</span>';
+    if (i === sections.length - 1){ gate.classList.add('finish-gate'); gate.innerHTML = '<span class="finish-banner"></span><span class="gate-label mono">ZIEL</span>'; }
+    if (xs[i] > 60) gate.classList.add('label-left');
+    trackGatesBg.appendChild(gate);
+    return gate;
+  });
+
+  function formatTime(t){
+    const m = Math.floor(t / 60);
+    const s = (t % 60).toFixed(2).padStart(5, '0');
+    return String(m).padStart(2,'0') + ':' + s;
+  }
+
+  buildTrack();
+  window.addEventListener('resize', () => { buildTrack(); onScroll(); });
+
+  function onScroll(){
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const startY = sections[0].offsetTop - window.innerHeight * 0.45;
+
+    // Fahrer folgt dem Lesefortschritt: Ist ein Abschnitt in der Bildmitte, steht der Fahrer am zugehörigen Tor
+    const stops = sections.map(sec => {
+      const r = sec.getBoundingClientRect();
+      return scrollTop + r.top + r.height / 2 - window.innerHeight / 2;
+    });
+    for (let i = 1; i < stops.length; i++){
+      if (stops[i] <= stops[i - 1] + 1) stops[i] = stops[i - 1] + 1;
+    }
+    let curLen;
+    if (scrollTop <= stops[0]){
+      curLen = 0;
+    } else if (scrollTop >= Math.min(stops[stops.length - 1], scrollHeight)){
+      curLen = totalLength;
+    } else {
+      let k = 0;
+      while (k < stops.length - 2 && scrollTop > stops[k + 1]) k++;
+      const a = stops[k];
+      const b = Math.min(stops[k + 1], Math.max(scrollHeight, a + 1));
+      const f = Math.min(Math.max((scrollTop - a) / Math.max(b - a, 1), 0), 1);
+      curLen = gateLens[k] + (gateLens[k + 1] - gateLens[k]) * f;
+    }
+    const progress = curLen / totalLength;
+
+    const started = scrollTop >= stops[0] - window.innerHeight * 0.08;
+    // Strecke wird sichtbar, sobald der Start-Abschnitt ins Bild rückt
+    trackOverlayEl.classList.toggle('visible', started);
+    trackGatesBg.classList.toggle('visible', started);
+    trackMarkers.classList.toggle('visible', started);
+    document.body.classList.toggle('started', started);
+
+    const pt = trackPath.getPointAtLength(curLen);
+    racer.style.left = (pt.x / VW * 100) + '%';
+    racer.style.top = (pt.y / VH * 100) + '%';
+    trackDone.style.strokeDashoffset = totalLength - curLen;
+    hudBar.style.width = (progress * 100) + '%';
+
+    const aheadLen = Math.min(curLen + 2, totalLength);
+    const ptAhead = trackPath.getPointAtLength(aheadLen);
+    const dx = ptAhead.x - pt.x;
+    if (Math.abs(dx) > 0.01){
+      racer.style.setProperty('--dir', dx < 0 ? -1 : 1);
+    }
+
+    const t = progress * 148.37;
+    clock.textContent = formatTime(t);
+    raceTime.textContent = formatTime(t);
+
+    const alt = Math.round(ALT_START - progress * (ALT_START - ALT_END));
+    altDisplay.textContent = alt + ' M';
+
+    // Tempo wie auf der echten Abfahrt: schneller Anlauf, Tempoverlust in Kurven, Spitze auf den Schussfahrten
+    const SPEEDS = [0, 128, 98, 149, 121, 96];
+    let speed = 0;
+    if (gateLens.length === SPEEDS.length){
+      let k = 0;
+      while (k < gateLens.length - 2 && curLen > gateLens[k + 1]) k++;
+      const span = Math.max(gateLens[k + 1] - gateLens[k], 1);
+      let f = Math.min(Math.max((curLen - gateLens[k]) / span, 0), 1);
+      f = (k === 0) ? Math.sqrt(f) : f * f * (3 - 2 * f);
+      speed = SPEEDS[k] + (SPEEDS[k + 1] - SPEEDS[k]) * f;
+      if (curLen > 0) speed += Math.sin(curLen / 40) * 3;
+    }
+    speedDisplay.textContent = Math.max(Math.round(speed), 0) + ' KM/H';
+
+    let current = sections[0];
+    let bestDist = Infinity;
+    const viewportCenter = window.innerHeight * 0.5;
+    for (const sec of sections){
+      const rect = sec.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const dist = Math.abs(center - viewportCenter);
+      if (rect.top <= viewportCenter && dist < bestDist){
+        bestDist = dist;
+        current = sec;
+      }
+    }
+    const idx = sections.indexOf(current);
+    checkpointEls.forEach((g, i) => g.classList.toggle('active', i === idx));
+    splitLabel.textContent = current.dataset.checkpoint.toUpperCase();
+    hud.classList.toggle('visible', started && idx !== sections.length - 1);
+  }
+
+  let ticking = false;
+  let racerHideTimer = null;
+  window.addEventListener('scroll', () => {
+    racer.classList.add('moving');
+    clearTimeout(racerHideTimer);
+    racerHideTimer = setTimeout(() => racer.classList.remove('moving'), 500);
+
+    if (!ticking){
+      requestAnimationFrame(() => { onScroll(); ticking = false; });
+      ticking = true;
+    }
+  });
+  onScroll();
+
+  const reveals = document.querySelectorAll('.content-block');
+  const rio = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.documentElement.classList.add('js');
+  reveals.forEach(b => rio.observe(b));
+
+  const bars = document.querySelectorAll('.bar span');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        e.target.style.width = e.target.dataset.w + '%';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  bars.forEach(b => io.observe(b));
+
+  // --- Foto-Karussell ---
+  const track = document.getElementById('carouselTrack');
+  const slides = track.children;
+  const dotsWrap = document.getElementById('carouselDots');
+  const captionEl = document.getElementById('carouselCaption');
+  const gagEl = document.getElementById('carouselGag');
+  let current = 0;
+
+  const captions = [
+    'Sport begleitet mich, seit ich klein bin. Ich bin seit meiner Kindheit im Turnverein, fahre Ski und gehe gerne wandern. Auch probiere ich immer wieder gerne etwas Neues aus.',
+    'Aber ich bin nicht nur selbst gerne in Bewegung, ich verfolge zudem leidenschaftlich gerne Fussball, Skirennen, Formel 1 und Eishockey.',
+    'Musik gibt mir Energie – am liebsten live. Konzerte und Festivals sind für mich der perfekte Ausgleich zum Alltag.',
+    'Das Reisen fasziniert mich, weil ich dabei neue Landschaften und Kulturen entdecke, Menschen kennenlerne und ihre Geschichten höre. Vor dem Studium war ich ein halbes Jahr in Australien backpacken, danach ging es weiter nach Vietnam und Sri Lanka. Später führten mich meine Reisen auch nach Brasilien und Indonesien.'
+  ];
+
+  for (let i = 0; i < slides.length; i++){
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+  const dots = dotsWrap.children;
+
+  function goTo(i){
+    current = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    Array.from(dots).forEach((dot, idx) => dot.classList.toggle('active', idx === current));
+    if (captionEl && captions[current]) captionEl.textContent = captions[current];
+    if (gagEl) gagEl.style.display = (current === slides.length - 1) ? 'block' : 'none';
+  }
+
+  document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('carouselNext').addEventListener('click', () => goTo(current + 1));
+</script>
+
+
+<div class="lightbox" id="lightbox"><span class="lb-close">×</span><img alt=""></div>
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'), im=lb.querySelector('img');
+  document.querySelectorAll('.carousel .photo img').forEach(function(i){
+    i.addEventListener('click',function(){ im.src=i.src; im.alt=i.alt; lb.classList.add('open'); });
+  });
+  lb.addEventListener('click',function(){ lb.classList.remove('open'); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('open'); });
+})();
+</script>
+
+</body>
+</html>
