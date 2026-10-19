@@ -1311,3 +1311,36 @@ body.started .scroll-cue{ opacity: 0; transition: opacity 0.3s ease; }
   .home-text h1{ margin-bottom: 24px; }
   .cta-row{ gap: 14px; margin-top: 6px; }
 }
+
+/* ---------- FOOTER (ganz unten auf jeder Seite) ---------- */
+.site-footer{
+  position: relative; z-index: 5;
+  background: var(--black-deep);
+  border-top: 1px solid var(--line);
+  padding: 56px 8vw 48px;
+  margin-top: 40px;
+}
+.footer-inner{ max-width: 980px; margin: 0 auto; }
+.footer-brand{ font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--cream); margin-bottom: 34px; }
+.footer-cols{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.footer-col h4{ font-family: 'Space Mono', monospace; font-weight: 400; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin: 0 0 16px; }
+.footer-col a{ display: block; font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: rgba(243,227,218,0.8); text-decoration: none; padding: 5px 0; transition: color .2s; }
+.footer-col a:hover{ color: var(--cream); }
+@media (max-width: 700px){
+  .site-footer{ padding: 44px 7vw 40px; }
+  .footer-cols{ grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .footer-col:last-child{ grid-column: 1 / -1; }
+}
+.legal-page{ min-height: 60vh; }
+.legal-page .project-text a{ color: var(--red-soft); }
+
+/* iPhone: Daten/Zahlen nicht automatisch als Link darstellen */
+a[x-apple-data-detectors]{ color: inherit !important; text-decoration: none !important; font: inherit !important; }
+.legal-page .project-text h2{ font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--cream); margin: 34px 0 10px; letter-spacing: 0; text-transform: none; }
+.legal-page .project-text ul{ margin: 0 0 16px 1.2em; padding: 0; }
+.legal-page .project-text li{ margin: 4px 0; }
+.legal-page .legal-stand{ font-size: 0.9rem; opacity: 0.7; }
+@media (max-width: 700px){
+  .legal-page h1{ font-size: 1.4rem; overflow-wrap: normal; letter-spacing: 0; }
+  .legal-page .project-text{ overflow-wrap: anywhere; }
+}
