@@ -1344,3 +1344,5 @@ a[x-apple-data-detectors]{ color: inherit !important; text-decoration: none !imp
   .legal-page h1{ font-size: 1.4rem; overflow-wrap: normal; letter-spacing: 0; }
   .legal-page .project-text{ overflow-wrap: anywhere; }
 }
+/* Über mich: Footer schliesst direkt an die Häuser an */
+.track-main + .site-footer, main.track-main ~ .site-footer{ margin-top: 0; }
