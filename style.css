@@ -1842,3 +1842,94 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
 }
 .gate .gate-label, .starthaus .gate-label{ top: -14px; }
 .gate.finish-gate .gate-label{ top: -16px; }
+
+/* =========================================================
+   ÜBER MICH — Einstieg mit Streckenprofil
+   ========================================================= */
+.track-main #welcome{ padding-top: 9vh; padding-bottom: 90px; min-height: calc(100vh - var(--nav-h)); justify-content: flex-start; }
+.track-main #welcome h2{ font-size: clamp(2.4rem, 5vw, 4.6rem); margin-bottom: 16px; }
+.track-main #welcome .desc{ font-size: clamp(1rem, 1.3vw, 1.15rem); max-width: 600px; }
+.welcome-kicker{ margin-bottom: 20px; }
+
+.profile{
+  position: relative; z-index: 1; width: 100%; max-width: 1240px; margin-top: 5vh;
+  border-top: 1px solid rgba(243,227,218,0.14);
+}
+.profile-head{
+  display: flex; justify-content: space-between; gap: 12px;
+  font-size: 10.5px; letter-spacing: 0.18em; color: rgba(243,227,218,0.5); padding: 12px 0 0;
+}
+.profile-plot{ position: relative; height: clamp(190px, 30vh, 290px); margin: 64px 0 0 44px; }
+.profile-plot svg{ position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.pf-grid{ stroke: rgba(243,227,218,0.08); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.pf-line{ fill: none; stroke: var(--red-soft); stroke-width: 2.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.pf-area{ fill: url(#pfFill); }
+.profile-plot svg{ animation: pfDraw 2.2s var(--ease-out) 0.5s both; }
+@keyframes pfDraw{ from{ clip-path: inset(-20% 100% -20% 0); } to{ clip-path: inset(-20% 0 -20% 0); } }
+.pf-axis{
+  position: absolute; left: -44px; transform: translateY(-50%);
+  font-size: 9.5px; letter-spacing: 0.06em; color: rgba(243,227,218,0.35);
+}
+
+.pf-mark{
+  position: absolute; left: var(--x); top: var(--y);
+  text-decoration: none; color: var(--cream);
+  animation: pfMarkIn 0.7s var(--ease-out) var(--d) both;
+}
+@keyframes pfMarkIn{ from{ opacity: 0; } to{ opacity: 1; } }
+.pf-dot{
+  position: absolute; left: 0; top: 0; width: 11px; height: 11px; border-radius: 50%;
+  transform: translate(-50%, -50%); background: var(--black-deep); border: 2px solid var(--red-soft);
+  transition: transform 0.3s var(--ease-out), background 0.3s ease;
+}
+/* feine Linie vom Punkt zur Karte */
+.pf-mark::before{
+  content: ''; position: absolute; left: 0; width: 1px; background: rgba(243,227,218,0.3);
+}
+.pf-above::before{ bottom: 6px; height: 34px; }
+.pf-below::before{ top: 6px; height: 34px; }
+.pf-card{
+  position: absolute; left: 0; display: flex; align-items: stretch; white-space: nowrap;
+  background: rgba(14,32,22,0.88); border: 1px solid rgba(243,227,218,0.14); border-radius: 3px; overflow: hidden;
+  transform: translateX(-12px);
+  transition: border-color 0.3s ease, transform 0.35s var(--ease-out);
+}
+.pf-above .pf-card{ bottom: 40px; }
+.pf-below .pf-card{ top: 40px; }
+.pf-end .pf-card{ left: auto; right: 0; transform: translateX(12px); }
+.pf-num{ display: flex; align-items: center; background: var(--red-soft); color: var(--black); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 0 8px; }
+.pf-txt{ display: flex; flex-direction: column; padding: 6px 10px 7px; gap: 2px; }
+.pf-txt b{ font: 600 12px 'Manrope', sans-serif; letter-spacing: 0.02em; }
+.pf-txt small{ font: 400 11px 'Manrope', sans-serif; color: rgba(243,227,218,0.6); }
+.pf-mark:hover .pf-dot, .pf-mark:focus-visible .pf-dot{ transform: translate(-50%, -50%) scale(1.4); background: var(--red-soft); }
+.pf-mark:hover .pf-card, .pf-mark:focus-visible .pf-card{ border-color: var(--red-soft); }
+.pf-above:hover .pf-card{ transform: translate(-12px, -3px); }
+.pf-below:hover .pf-card{ transform: translate(-12px, 3px); }
+.pf-end.pf-above:hover .pf-card{ transform: translate(12px, -3px); }
+
+.track-main #welcome .scroll-cue{ bottom: 26px; }
+
+@media (max-width: 900px){
+  .pf-txt small{ display: none; }
+  .pf-txt b{ font-size: 11px; }
+}
+@media (max-width: 700px){
+  .track-main #welcome{ min-height: auto; padding-top: 8vh; padding-bottom: 80px; }
+  .profile-plot{ height: 170px; margin: 54px 6px 0 34px; }
+  .pf-axis{ left: -34px; font-size: 8.5px; }
+  .pf-txt{ display: none; }
+  .pf-num{ padding: 5px 6px; font-size: 9px; }
+  .pf-card{ transform: translateX(-50%); }
+  .pf-end .pf-card{ transform: none; }
+  .pf-above::before, .pf-below::before{ height: 26px; }
+  .pf-above .pf-card{ bottom: 32px; } .pf-below .pf-card{ top: 32px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .profile-plot svg, .pf-mark{ animation: none; }
+}
+.track-main #welcome{ padding-top: calc(var(--nav-h) + 6vh); padding-bottom: 110px; }
+.pf-end.pf-below:hover .pf-card{ transform: translate(12px, 3px); }
+@media (max-width: 700px){
+  .track-main #welcome{ padding-top: calc(var(--nav-h) + 5vh); padding-bottom: 100px; }
+}
+.profile-plot{ margin-top: 92px; } @media (max-width: 700px){ .profile-plot{ margin-top: 64px; } }
