@@ -38,12 +38,12 @@
 
   <div class="work-grid">
 
-    <a class="work work-featured" href="projekt-social-media.html" data-category="social-media" data-reveal style="--d:0ms">
+    <a class="work" href="projekt-social-media.html" data-category="social-media" data-reveal style="--d:0ms">
       <div class="work-img"><img src="social-labuesch.jpg" alt="Social Media für die Labüsch Bar" loading="lazy"><span class="work-cat mono">SOCIAL MEDIA</span></div>
       <div class="work-body">
         <div class="work-meta mono">Labüsch Bar · 2025–2026</div>
         <h3>Social Media für die Labüsch Bar</h3>
-        <p>Von November 2025 bis Mai 2026 habe ich den Instagram-Kanal der Labüsch Bar in Winterthur geführt und mehrere Flyer gestaltet. Neben den Events stand die Kunst im Fokus, die die Bar zu einem besonderen Ort macht.</p>
+        <p>Instagram-Kanal und Flyer für die Labüsch Bar in Winterthur, mit Fokus auf die Events und die Kunst, die die Bar besonders macht.</p>
         <span class="work-link">Projekt ansehen <i>→</i></span>
       </div>
     </a>
@@ -53,7 +53,7 @@
       <div class="work-body">
         <div class="work-meta mono">ZHAW · Multimedia Production</div>
         <h3>Videoporträt Noemi Mehring</h3>
-        <p>Porträt über die Geschäftsleiterin der Labüsch Bar, die ihre Leidenschaft im Berufsalltag lebt. Im Team umgesetzt in Premiere Pro.</p>
+        <p>Videoporträt über die Geschäftsleiterin der Labüsch Bar, die ihre Leidenschaft im Berufsalltag lebt.</p>
         <span class="work-link">Projekt ansehen <i>→</i></span>
       </div>
     </a>
@@ -99,6 +99,7 @@
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
+      document.querySelector('.work-grid').classList.toggle('is-filtered', filter !== 'alle');
       cards.forEach(card => {
         const match = filter === 'alle' || card.dataset.category === filter;
         card.style.display = match ? '' : 'none';
