@@ -1661,3 +1661,160 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
 .a-bg-rosa{ fill: var(--red-soft); }
 .m-env{ fill: none; stroke: var(--black); stroke-width: 3.5; }
 .m-flap{ fill: none; stroke: var(--black); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* =========================================================
+   ÜBER MICH — TV-SPORTGRAFIK
+   ========================================================= */
+/* Strecke: feine Linien statt Pistenband */
+.track-band, .track-edge{ display: none; }
+.track-path{ stroke: var(--cream); stroke-width: 1.2; opacity: 0.22; stroke-dasharray: none; }
+.track-done{ stroke: var(--red-soft); stroke-width: 2.4; filter: none; }
+
+/* Zwischenzeit-Marken */
+.gate, .gate.finish-gate{ width: 0; height: 0; opacity: 1; filter: none; transform: none; }
+.gate::before, .gate::after, .gate.finish-gate::before, .gate.finish-gate::after{ display: none; }
+.gate-tick, .tv-start-tick{
+  position: absolute; left: 0; top: 0; width: 18px; height: 2px; transform: translate(-50%, -50%);
+  background: rgba(243,227,218,0.45); transition: background 0.3s ease, width 0.4s var(--ease-out);
+}
+.gate-tick::after, .tv-start-tick::after{
+  content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 50%;
+  transform: translate(-50%, -50%); background: var(--black-deep); border: 1.5px solid rgba(243,227,218,0.6);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.gate.passed .gate-tick::after, .starthaus .tv-start-tick::after{ background: var(--red-soft); border-color: var(--red-soft); }
+.gate.active .gate-tick{ width: 28px; background: var(--cream); }
+.gate .gate-label, .starthaus .gate-label{
+  position: absolute; top: 0; left: 22px; transform: translateY(-50%);
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: 0.12em; white-space: nowrap;
+  color: rgba(243,227,218,0.6);
+  background: rgba(14,32,22,0.72); padding: 5px 9px 5px 0; border-radius: 3px;
+  overflow: hidden;
+}
+.gate.label-left .gate-label{ left: auto; right: 22px; }
+.gate-label b{ background: rgba(243,227,218,0.12); color: var(--cream); padding: 5px 7px; margin: -5px 0; font-weight: 700; }
+.gate.passed .gate-label b, .starthaus .gate-label b{ background: var(--red-soft); color: var(--black); }
+.gate.active .gate-label{ color: var(--cream); }
+.gate-time{ font-style: normal; color: var(--cream); font-variant-numeric: tabular-nums; }
+.gate-time:empty{ display: none; }
+.finish-banner{ display: none; }
+.starthaus.tv-start{ width: 0; height: 0; transform: none; opacity: 1; }
+.starthaus.tv-start.active{ transform: none; }
+
+/* Fahrerin: Live-Punkt mit Startnummer */
+.racer{
+  width: 0; height: 0; opacity: 1; filter: none;
+  transform: none; transition: none;
+}
+.racer-dot{
+  position: absolute; left: 0; top: 0; width: 12px; height: 12px; border-radius: 50%;
+  transform: translate(-50%, -50%); background: var(--cream);
+  box-shadow: 0 0 0 4px rgba(227,183,172,0.35), 0 0 18px rgba(227,183,172,0.6);
+}
+.racer-dot::after{
+  content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--red-soft);
+  animation: racerPing 1.8s ease-out infinite;
+}
+@keyframes racerPing{ from{ transform: scale(0.6); opacity: 1; } to{ transform: scale(2.4); opacity: 0; } }
+.racer-tag{
+  position: absolute; left: 14px; top: -26px; white-space: nowrap;
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em;
+  background: var(--cream); color: var(--black); padding: 3px 6px; border-radius: 2px;
+}
+
+/* Einblendung oben wie im TV */
+.hud{
+  top: calc(var(--nav-h, 64px) + 12px); left: 50%; right: auto; transform: translateX(-50%);
+  padding: 0; gap: 0; border: none; border-radius: 4px; overflow: hidden;
+  background: rgba(14,32,22,0.94); box-shadow: 0 12px 30px rgba(5,15,9,0.45);
+  align-items: stretch; font-size: 11px; white-space: nowrap;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.hud-bib{
+  display: flex; align-items: center; justify-content: center;
+  background: var(--red-soft); color: var(--black); font-weight: 700; font-size: 15px; min-width: 38px;
+}
+.hud-name{
+  display: flex; align-items: center; gap: 8px; padding: 0 14px;
+  background: var(--cream); color: var(--black);
+  font: 800 14px 'Manrope', sans-serif; letter-spacing: 0.04em;
+}
+.hud-name small{ font-weight: 500; font-size: 13px; letter-spacing: 0; }
+.hud-name i{ font-style: normal; font-size: 10px; color: var(--red); letter-spacing: 0.1em; }
+.hud-seg{ display: flex; align-items: center; gap: 22px; padding: 9px 18px 11px; }
+.hud .current{ font-size: 10.5px; letter-spacing: 0.12em; color: var(--red-soft); font-weight: 700; min-width: 15ch; }
+.hud .item{ font-size: 10.5px; }
+.hud-live{
+  display: flex; align-items: center; gap: 6px; padding: 0 14px;
+  border-left: 1px solid rgba(243,227,218,0.12);
+  font-size: 10px; letter-spacing: 0.14em; color: var(--cream);
+}
+.hud-live i, .kicker-live i{
+  width: 7px; height: 7px; border-radius: 50%; background: #E0524A; display: inline-block;
+  animation: liveBlink 1.6s ease-in-out infinite;
+}
+@keyframes liveBlink{ 50%{ opacity: 0.25; } }
+.hud .hud-bar{ height: 2px; background: rgba(243,227,218,0.1); }
+.hud .hud-bar span{ background: var(--red-soft); }
+
+/* LIVE im Willkommen-Kicker */
+.kicker-live{
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(224,82,74,0.14); color: var(--cream); border: 1px solid rgba(224,82,74,0.4);
+  padding: 4px 9px; border-radius: 3px; margin-right: 14px; letter-spacing: 0.16em;
+}
+
+/* Bauchbinden statt Pillen */
+.track-main .eyebrow.lt, #ziel .eyebrow.lt{
+  display: inline-flex; align-items: stretch; padding: 0; gap: 0;
+  background: none; border: none; border-radius: 3px; overflow: hidden;
+  font-size: 11px; letter-spacing: 0.14em; margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(5,15,9,0.25);
+}
+.lt-num{ background: var(--red-soft); color: var(--black); font-weight: 700; padding: 6px 10px; }
+.lt-txt{ background: var(--cream); color: var(--black); padding: 6px 12px; }
+
+/* Karten: etwas klarer, eckiger */
+.content-block{ border-radius: 10px; }
+.track-main ul.bullets li::marker{ color: var(--red-soft); }
+
+/* Ergebnistafel im Ziel */
+.result-board{ margin: 18px 0 26px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(243,227,218,0.14); }
+.rb-head{
+  display: flex; justify-content: space-between; gap: 12px;
+  background: rgba(10,26,17,0.75); color: rgba(243,227,218,0.6);
+  font-size: 10px; letter-spacing: 0.16em; padding: 9px 14px;
+}
+.rb-row{ display: grid; grid-template-columns: 46px 1fr auto auto; align-items: center; background: var(--cream); color: var(--black); }
+.rb-rank{ background: var(--red-soft); font-weight: 700; font-size: 18px; text-align: center; padding: 12px 0; }
+.rb-name{ padding: 0 16px; font: 500 16px 'Manrope', sans-serif; }
+.rb-name b{ font-weight: 800; letter-spacing: 0.03em; }
+.rb-nat{ font-size: 11px; letter-spacing: 0.12em; color: var(--red); padding: 0 14px; }
+.rb-time{ font-weight: 700; font-size: 20px; padding: 0 16px; font-variant-numeric: tabular-nums; }
+
+/* Startseite: Stoppuhr am Über-mich-Ordner */
+.f-watch{ fill: none; stroke: var(--cream); stroke-width: 1.5; stroke-linecap: round; }
+
+@media (max-width: 700px){
+  .hud{ top: var(--nav-h, 64px); left: 0; right: 0; transform: none; border-radius: 0; }
+  .hud-name, .hud-live{ display: none; }
+  .hud-bib{ min-width: 30px; font-size: 12px; }
+  .hud-seg{ gap: 10px; padding: 7px 10px 9px; flex: 1; justify-content: space-between; }
+  .hud .current{ min-width: 0; font-size: 9px; }
+  .hud .item{ font-size: 9px; }
+  .racer-tag{ display: none; }
+  .kicker-live{ margin-right: 8px; }
+  .rb-row{ grid-template-columns: 38px 1fr auto; }
+  .rb-nat{ display: none; }
+  .rb-name{ font-size: 14px; padding: 0 10px; }
+  .rb-time{ font-size: 16px; padding: 0 10px; }
+  .rb-head span:last-child{ display: none; }
+}
+@media (prefers-reduced-motion: reduce){
+  .racer-dot::after, .hud-live i, .kicker-live i{ animation: none; }
+}
+.welcome-kicker::before{ display: none; }
+@media (max-width: 700px){
+  .gate .gate-label, .starthaus .gate-label{ display: none; }
+}

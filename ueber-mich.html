@@ -31,45 +31,23 @@
 </div>
 
 <div class="track-gates-bg" id="trackGatesBg" aria-hidden="true">
-  <svg class="starthaus" id="starthaus" viewBox="0 0 96 80" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Boden -->
-    <line x1="2" y1="73" x2="94" y2="73" stroke="var(--cream)" stroke-opacity="0.35" stroke-width="1.2"/>
-    <!-- Hütte -->
-    <rect x="12" y="38" width="46" height="35" fill="var(--black-deep)" stroke="var(--cream)" stroke-width="1.6"/>
-    <!-- flaches Dach mit Überstand -->
-    <rect x="8" y="32" width="54" height="6" fill="var(--cream)"/>
-    <!-- Fensterband -->
-    <rect x="18" y="45" width="26" height="9" fill="var(--red)" fill-opacity="0.28" stroke="var(--cream)" stroke-opacity="0.8" stroke-width="1.1"/>
-    <!-- Tür -->
-    <rect x="48" y="52" width="6" height="21" fill="var(--cream)" fill-opacity="0.18" stroke="var(--cream)" stroke-opacity="0.6" stroke-width="1"/>
-    <!-- Antenne -->
-    <line x1="52" y1="32" x2="52" y2="14" stroke="var(--cream)" stroke-width="1.4"/>
-    <circle cx="52" cy="13" r="1.8" fill="var(--red)" stroke="none"/>
-    <!-- Startportal -->
-    <line x1="70" y1="73" x2="70" y2="42" stroke="var(--cream)" stroke-width="2"/>
-    <line x1="88" y1="73" x2="88" y2="42" stroke="var(--cream)" stroke-width="2"/>
-    <line x1="70" y1="45" x2="88" y2="45" stroke="var(--red)" stroke-width="2.4"/>
-  </svg>
+  <div class="starthaus tv-start" id="starthaus"><span class="tv-start-tick"></span><span class="gate-label mono"><b>START</b> 2315 M</span></div>
 </div>
 
 <div class="track-markers" id="trackMarkers" aria-hidden="true">
-  <div class="racer" id="racer">
-    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="25" cy="8" r="4.5" fill="var(--red)"/>
-      <path d="M23 12 L15 24 L9 33" stroke="var(--red)" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-      <path d="M23 12 L29 21 L35 17" stroke="var(--red)" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-      <line x1="15" y1="24" x2="27" y2="21" stroke="var(--red)" stroke-width="3.2" stroke-linecap="round"/>
-      <line x1="2" y1="36" x2="17" y2="31" stroke="var(--cream)" stroke-width="3.4" stroke-linecap="round"/>
-      <line x1="20" y1="30" x2="35" y2="27" stroke="var(--cream)" stroke-width="3.4" stroke-linecap="round"/>
-    </svg>
-  </div>
+  <div class="racer" id="racer"><span class="racer-dot"></span><span class="racer-tag mono">1 · VOCK</span></div>
 </div>
 
 <div class="hud" id="hud" aria-hidden="true">
-  <span class="current" id="splitLabel">START</span>
-  <span class="item"><i>ZEIT</i><b class="val" id="clockDisplay">00:00.00</b></span>
-  <span class="item"><i>HÖHE</i><b class="val" id="altDisplay">2315 M</b></span>
-  <span class="item"><i>TEMPO</i><b class="val" id="speedDisplay">0 KM/H</b></span>
+  <span class="hud-bib mono">1</span>
+  <span class="hud-name">VOCK <small>Larissa</small> <i class="mono">SUI</i></span>
+  <span class="hud-seg">
+    <span class="current mono" id="splitLabel">START</span>
+    <span class="item"><i>ZEIT</i><b class="val" id="clockDisplay">00:00.00</b></span>
+    <span class="item"><i>HÖHE</i><b class="val" id="altDisplay">2315 M</b></span>
+    <span class="item"><i>TEMPO</i><b class="val" id="speedDisplay">0 KM/H</b></span>
+  </span>
+  <span class="hud-live mono"><i></i>LIVE</span>
   <div class="hud-bar"><span id="hudBar"></span></div>
 </div>
 
@@ -89,7 +67,7 @@
       <path d="M0,600 L0,510.6 L16,504.8 L32,497.1 L48,493.4 L64,490.1 L80,470.5 L96,470.3 L112,453.7 L128,443.0 L144,446.2 L160,439.7 L176,424.3 L192,423.6 L208,430.0 L224,428.3 L240,426.5 L256,412.8 L272,415.6 L288,429.7 L304,420.8 L320,422.4 L336,433.6 L352,445.4 L368,448.7 L384,463.8 L400,474.0 L416,465.1 L432,479.5 L448,490.4 L464,491.6 L480,504.6 L496,489.8 L512,483.7 L528,488.0 L544,480.7 L560,473.7 L576,468.7 L592,457.1 L608,458.1 L624,451.0 L640,452.7 L656,435.9 L672,444.0 L688,441.0 L704,438.5 L720,433.4 L736,443.6 L752,437.0 L768,447.6 L784,451.0 L800,455.7 L816,469.9 L832,468.0 L848,478.8 L864,488.4 L880,480.8 L896,499.0 L912,500.5 L928,502.9 L944,507.4 L960,500.8 L976,486.1 L992,473.7 L1008,457.8 L1024,458.2 L1040,438.4 L1056,432.8 L1072,421.7 L1088,403.2 L1104,399.5 L1120,391.3 L1136,382.1 L1152,375.4 L1168,381.5 L1184,378.0 L1200,381.3 L1216,384.4 L1232,386.0 L1248,396.7 L1264,403.1 L1280,413.2 L1296,414.9 L1312,430.2 L1328,438.4 L1344,449.0 L1360,473.2 L1376,479.5 L1392,484.1 L1408,486.5 L1424,489.0 L1440,479.4 L1456,464.2 L1472,462.2 L1488,451.5 L1504,448.1 L1520,432.4 L1536,426.9 L1552,423.1 L1568,436.4 L1584,428.1 L1600,432.5 L1600,600 Z" fill="url(#mNear)" data-speed="0.1"/>
     </svg>
     <div class="welcome-copy" data-speed="0.35" data-fade>
-      <div class="welcome-kicker mono">LAUBERHORN · WENGEN · 4,5 KM</div>
+      <div class="welcome-kicker mono"><span class="kicker-live"><i></i>LIVE</span>LAUBERHORN · WENGEN · 4,5 KM</div>
       <h2 data-split>Bereit für die Abfahrt?</h2>
       <p class="desc">Lass uns gemeinsam die Lauberhorn-Abfahrt bestreiten. Wir fahren alle Etappen meines
       Werdegangs ab und entdecken unterwegs auch, was mich neben der Piste antreibt.</p>
@@ -99,7 +77,7 @@
 
   <section id="hero" class="align-right" data-checkpoint="Start">
     <div class="content-block">
-    <div class="eyebrow mono">START — LAUBERHORN, WENGEN</div>
+    <div class="eyebrow lt mono"><span class="lt-num">START</span><span class="lt-txt">LAUBERHORN · WENGEN</span></div>
     <h2 data-split>3… 2… 1… START!</h2>
     <p class="desc">Ab jetzt zählt jede Sekunde. Scroll weiter und verfolg oben live,
     wie gut du im Rennen bist.</p>
@@ -108,7 +86,7 @@
 
   <section class="alt" data-checkpoint="Hundschopf">
     <div class="content-block">
-    <div class="eyebrow mono">01 — HUNDSCHOPF</div>
+    <div class="eyebrow lt mono"><span class="lt-num">ZZ1</span><span class="lt-txt">HUNDSCHOPF</span></div>
     <h2 data-split>Berufserfahrung</h2>
 
     <p class="desc" style="margin-bottom: 4px;"><strong>Assistentin Zeitungsredaktion (befristet)</strong>, CH Media, Aarau</p>
@@ -142,7 +120,7 @@
 
   <section class="align-right" data-checkpoint="Minschkante">
     <div class="content-block">
-    <div class="eyebrow mono">02 — MINSCHKANTE</div>
+    <div class="eyebrow lt mono"><span class="lt-num">ZZ2</span><span class="lt-txt">MINSCHKANTE</span></div>
     <h2 data-split>Ausbildung</h2>
 
     <p class="desc" style="margin-bottom: 4px;"><strong>Bachelor Kommunikation &amp; Medien</strong>, ZHAW Angewandte Linguistik, Winterthur</p>
@@ -155,7 +133,7 @@
 
   <section id="skills" class="alt" data-checkpoint="Silberhornsprung">
     <div class="content-block">
-    <div class="eyebrow mono">03 — SILBERHORNSPRUNG</div>
+    <div class="eyebrow lt mono"><span class="lt-num">ZZ3</span><span class="lt-txt">SILBERHORNSPRUNG</span></div>
     <h2 data-split>Kompetenzen</h2>
     <div class="skills-grid skills-aligned">
       <div class="sk-cell">
@@ -199,7 +177,7 @@
 
   <section class="align-right" data-checkpoint="Seilersprung">
     <div class="content-block">
-    <div class="eyebrow mono">04 — SEILERSPRUNG</div>
+    <div class="eyebrow lt mono"><span class="lt-num">ZZ4</span><span class="lt-txt">SEILERSPRUNG</span></div>
     <h2 data-split>Neben der Piste</h2>
     <p class="desc">Neben dem Beruflichen bewegen mich vor allem drei Dinge: Sport, Musik und das Reisen.</p>
 
@@ -225,9 +203,12 @@
 
   <section id="ziel" data-checkpoint="Ziel">
     <div class="ziel-copy content-block">
-      <div class="eyebrow mono">ZIEL — WENGEN</div>
+      <div class="eyebrow lt mono"><span class="lt-num">ZIEL</span><span class="lt-txt">WENGEN · 1287 M</span></div>
       <h2 data-split>Ziel!</h2>
-      <div class="final-time mono"><span class="ft-label">ZEIT</span><span id="raceTime">00:00.00</span></div>
+      <div class="result-board">
+        <div class="rb-head mono"><span>ERGEBNIS · LAUBERHORN-ABFAHRT</span><span>INOFFIZIELL</span></div>
+        <div class="rb-row"><span class="rb-rank mono">1</span><span class="rb-name"><b>VOCK</b> Larissa</span><span class="rb-nat mono">SUI</span><span class="rb-time mono" id="raceTime">00:00.00</span></div>
+      </div>
       <p class="desc">
         Und nun stehe ich hier, mitten im Studium für Kommunikation und Medien und mit einigen
         Praxiserfahrungen im Gepäck. Ich freue mich darauf, das nächste Rennen gemeinsam mit euch zu bestreiten.
@@ -313,8 +294,8 @@
     gate.className = 'gate';
     gate.style.left = xs[i] + '%';
     gate.style.top = (ys[i] / 10) + '%';
-    gate.innerHTML = '<span class="flag-l"></span><span class="flag-r"></span><span class="gate-label mono">' + sec.dataset.checkpoint.toUpperCase() + '</span>';
-    if (i === sections.length - 1){ gate.classList.add('finish-gate'); gate.innerHTML = '<span class="finish-banner"></span><span class="gate-label mono">ZIEL</span>'; }
+    gate.innerHTML = '<span class="gate-tick"></span><span class="gate-label mono"><b>ZZ' + i + '</b> ' + sec.dataset.checkpoint.toUpperCase() + ' <em class="gate-time"></em></span>';
+    if (i === sections.length - 1){ gate.classList.add('finish-gate'); gate.innerHTML = '<span class="gate-tick"></span><span class="gate-label mono"><b>ZIEL</b> <em class="gate-time"></em></span>'; }
     if (xs[i] > 60) gate.classList.add('label-left');
     trackGatesBg.appendChild(gate);
     return gate;
@@ -411,6 +392,13 @@
         current = sec;
       }
     }
+    checkpointEls.forEach((g, i) => {
+      if (i === 0) return;
+      const passed = curLen >= gateLens[i] - 0.5;
+      g.classList.toggle('passed', passed);
+      const tEl = g.querySelector('.gate-time');
+      if (tEl) tEl.textContent = passed ? formatTime(gateLens[i] / totalLength * 148.37) : '';
+    });
     const idx = sections.indexOf(current);
     checkpointEls.forEach((g, i) => g.classList.toggle('active', i === idx));
     splitLabel.textContent = current.dataset.checkpoint.toUpperCase();
