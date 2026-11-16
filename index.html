@@ -9,39 +9,125 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dt-body">
 
-<nav class="site-nav">
-  <a href="index.html" class="logo">LARISSA<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">START</a></li>
-    <li><a href="ueber-mich.html">ÜBER MICH</a></li>
-    <li><a href="portfolio.html">PORTFOLIO</a></li>
-    <li><a href="kontakt.html">KONTAKT</a></li>
-  </ul>
-</nav>
-
-<div class="page">
-  <section class="home-hero">
-    <div class="home-photo">
-      <img src="larissa-photo.jpg" alt="Larissa Vock">
+<!-- Menüleiste oben -->
+<header class="dt-menubar">
+  <a href="index.html" class="dt-chip dt-brand">LARISSA VOCK</a>
+  <div class="dt-menubar-right">
+    <div class="dt-chip dt-status">
+      <i class="dt-dot" aria-hidden="true"></i>
+      <span><b>Aktuell</b> Praktikantin Marketingkreation · SRF</span>
+      <span class="dt-status-sub">Studium ZHAW</span>
     </div>
-    <div class="home-text">
-      <h1 data-split>Hi, ich bin<br><span>Larissa.</span></h1>
-      <div class="home-tagline" data-reveal style="--d:350ms">Kommunikation · Content · Sport</div>
-      <p class="home-story" data-reveal style="--d:480ms">Schon seit meiner Kindheit fasziniert mich die Welt hinter den Menschen: ihre Geschichten,
-      ihre Persönlichkeiten und das, was sie ausmacht. Für mich war deshalb früh klar, dass ich einmal in der
-      Kommunikations- und Medienbranche arbeiten möchte. Meine Grossmutter sagte immer: «Sie wird einmal
-      Reporterin.» Heute schlägt mein Herz für den Sport, und genau dort möchte ich ansetzen und Geschichten in
-      Bild, Video und Text erzählen.</p>
-      <div class="cta-row" data-reveal style="--d:620ms">
-        <a href="ueber-mich.html" class="cta-btn green">ÜBER MICH</a>
-        <a href="portfolio.html" class="cta-btn green">PORTFOLIO ANSEHEN</a>
-        <a href="kontakt.html" class="cta-btn green">KONTAKT</a>
+    <div class="dt-chip dt-clock mono" id="dtClock" aria-label="Uhrzeit in Zürich">&nbsp;</div>
+  </div>
+</header>
+
+<main class="dt-desktop" id="desktop">
+
+  <!-- Fenster in der Mitte -->
+  <div class="dt-windows">
+    <div class="dt-window dt-photo" data-drag style="--d:150ms">
+      <div class="dt-titlebar" data-handle>
+        <span class="dt-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="dt-title mono">LARISSA_VOCK.jpg</span>
+      </div>
+      <div class="dt-photo-img"><img src="larissa-photo.jpg" alt="Larissa Vock" draggable="false"></div>
+      <div class="dt-filetag mono">LARISSA_VOCK.jpg</div>
+    </div>
+
+    <div class="dt-window dt-text" data-drag style="--d:300ms">
+      <div class="dt-titlebar" data-handle>
+        <span class="dt-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="dt-title mono">hallo.txt</span>
+      </div>
+      <div class="dt-text-body">
+        <h1 data-split>Hi, ich bin <span>Larissa.</span></h1>
+        <div class="home-tagline mono">Kommunikation · Content · Sport</div>
+        <p class="home-story">Schon seit meiner Kindheit fasziniert mich die Welt hinter den Menschen: ihre Geschichten,
+        ihre Persönlichkeiten und das, was sie ausmacht. Für mich war deshalb früh klar, dass ich einmal in der
+        Kommunikations- und Medienbranche arbeiten möchte. Meine Grossmutter sagte immer: «Sie wird einmal
+        Reporterin.» Heute schlägt mein Herz für den Sport, und genau dort möchte ich ansetzen und Geschichten in
+        Bild, Video und Text erzählen.</p>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+
+  <!-- Desktop-Icons -->
+  <nav class="dt-icons" aria-label="Desktop">
+    <a class="dt-icon" href="ueber-mich.html" data-drag style="--x:8%; --y:22%; --d:600ms">
+      <svg class="dt-folder folder-cream" viewBox="0 0 96 76" aria-hidden="true">
+        <path d="M4 10 Q4 4 10 4 H34 Q38 4 40 8 L43 13 H86 Q92 13 92 19 V24 H4 Z" class="f-back"/>
+        <rect x="4" y="20" width="88" height="52" rx="6" class="f-front"/>
+        <rect x="50" y="50" width="36" height="13" rx="2" class="f-tag"/>
+        <text x="68" y="59.5" class="f-tag-txt">4,5 KM</text>
+      </svg>
+      <span class="dt-label">ÜBER MICH</span>
+    </a>
+
+    <a class="dt-icon" href="portfolio.html" data-drag style="--x:11%; --y:54%; --d:720ms">
+      <svg class="dt-folder folder-rosa" viewBox="0 0 96 76" aria-hidden="true">
+        <path d="M4 10 Q4 4 10 4 H34 Q38 4 40 8 L43 13 H86 Q92 13 92 19 V24 H4 Z" class="f-back"/>
+        <rect x="4" y="20" width="88" height="52" rx="6" class="f-front"/>
+        <rect x="58" y="50" width="28" height="13" rx="2" class="f-tag"/>
+        <text x="72" y="59.5" class="f-tag-txt">WORK</text>
+      </svg>
+      <span class="dt-label">PORTFOLIO</span>
+    </a>
+
+    <a class="dt-icon" href="Lebenslauf_Larissa_Vock.pdf" download data-drag style="--x:89%; --y:18%; --d:840ms">
+      <svg class="dt-doc" viewBox="0 0 76 92" aria-hidden="true">
+        <path d="M8 4 H50 L70 24 V84 Q70 88 66 88 H8 Q4 88 4 84 V8 Q4 4 8 4 Z" class="d-page"/>
+        <path d="M50 4 V20 Q50 24 54 24 H70" class="d-fold"/>
+        <rect x="12" y="36" width="40" height="3" rx="1.5" class="d-line"/>
+        <rect x="12" y="44" width="48" height="3" rx="1.5" class="d-line"/>
+        <rect x="12" y="52" width="34" height="3" rx="1.5" class="d-line"/>
+        <rect x="12" y="66" width="30" height="14" rx="2" class="d-tag"/>
+        <text x="27" y="76.5" class="d-tag-txt">PDF</text>
+      </svg>
+      <span class="dt-label">LEBENSLAUF.pdf</span>
+    </a>
+
+    <a class="dt-icon" href="kontakt.html" data-drag style="--x:91%; --y:45%; --d:960ms">
+      <svg class="dt-folder folder-rosa" viewBox="0 0 96 76" aria-hidden="true">
+        <path d="M4 10 Q4 4 10 4 H34 Q38 4 40 8 L43 13 H86 Q92 13 92 19 V24 H4 Z" class="f-back"/>
+        <rect x="4" y="20" width="88" height="52" rx="6" class="f-front"/>
+        <rect x="66" y="50" width="20" height="13" rx="2" class="f-tag"/>
+        <text x="76" y="59.5" class="f-tag-txt">@</text>
+      </svg>
+      <span class="dt-label">KONTAKT</span>
+    </a>
+
+    <a class="dt-icon" href="https://www.linkedin.com/in/larissa-vock-81aab3216/" target="_blank" rel="noopener" data-drag style="--x:83%; --y:80%; --d:1080ms">
+      <svg class="dt-app" viewBox="0 0 80 80" aria-hidden="true">
+        <rect x="4" y="4" width="72" height="72" rx="18" class="a-bg"/>
+        <text x="40" y="52" class="a-txt">in</text>
+      </svg>
+      <span class="dt-label">LINKEDIN.url</span>
+    </a>
+
+    <a class="dt-icon" href="mailto:larissa.vock@bluewin.ch" data-drag style="--x:93%; --y:80%; --d:1200ms">
+      <svg class="dt-app" viewBox="0 0 80 80" aria-hidden="true">
+        <rect x="4" y="4" width="72" height="72" rx="18" class="a-bg a-bg-rosa"/>
+        <rect x="19" y="25" width="42" height="30" rx="4" class="m-env"/>
+        <path d="M21 28 L40 42 L59 28" class="m-flap"/>
+      </svg>
+      <span class="dt-label">MAIL</span>
+    </a>
+  </nav>
+
+  <!-- Dock unten -->
+  <nav class="dt-dock" aria-label="Hauptnavigation">
+    <a href="index.html" class="dt-dock-logo" aria-label="Start">L<span>.</span></a>
+    <ul>
+      <li><a href="index.html" class="active">START</a></li>
+      <li><a href="ueber-mich.html">ÜBER MICH</a></li>
+      <li><a href="portfolio.html">PORTFOLIO</a></li>
+      <li><a href="kontakt.html">KONTAKT</a></li>
+    </ul>
+  </nav>
+</main>
 
 
 <footer class="site-footer">
@@ -66,6 +152,63 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  /* Uhr (Zürcher Zeit) */
+  var clock = document.getElementById('dtClock');
+  var fmtDay = new Intl.DateTimeFormat('de-CH', { timeZone: 'Europe/Zurich', weekday: 'short', day: 'numeric', month: 'short' });
+  var fmtTime = new Intl.DateTimeFormat('de-CH', { timeZone: 'Europe/Zurich', hour: '2-digit', minute: '2-digit' });
+  function tick(){
+    var now = new Date();
+    clock.textContent = fmtDay.format(now).replace(/\./g, '').replace(',', '') + ' · ' + fmtTime.format(now);
+  }
+  tick(); setInterval(tick, 10000);
+
+
+  /* Fenster & Icons verschieben wie auf einem Desktop */
+  var desktop = document.getElementById('desktop');
+  var z = 10;
+  var canDrag = window.matchMedia('(min-width: 900px) and (pointer: fine)');
+  document.querySelectorAll('[data-drag]').forEach(function(el){
+    var handle = el.querySelector('[data-handle]') || el;
+    var sx, sy, ox = 0, oy = 0, moved = false, active = false;
+    handle.addEventListener('pointerdown', function(e){
+      if (!canDrag.matches || e.button !== 0) return;
+      active = true; moved = false;
+      sx = e.clientX - ox; sy = e.clientY - oy;
+      el.style.zIndex = ++z;
+      el.classList.add('is-focus');
+      handle.setPointerCapture(e.pointerId);
+    });
+    handle.addEventListener('pointermove', function(e){
+      if (!active) return;
+      var nx = e.clientX - sx, ny = e.clientY - sy;
+      if (!moved && Math.abs(nx - ox) + Math.abs(ny - oy) < 4) return;
+      moved = true;
+      el.classList.add('is-dragging');
+      // im sichtbaren Bereich halten
+      var r = el.getBoundingClientRect(), d = desktop.getBoundingClientRect();
+      var baseL = r.left - ox, baseT = r.top - oy;
+      nx = Math.min(Math.max(nx, d.left + 8 - baseL), d.right - 8 - r.width - baseL);
+      ny = Math.min(Math.max(ny, d.top + 70 - baseT), d.bottom - 100 - r.height - baseT);
+      ox = nx; oy = ny;
+      el.style.translate = ox + 'px ' + oy + 'px';
+    });
+    el.addEventListener('dragstart', function(e){ e.preventDefault(); });
+    function end(){ active = false; el.classList.remove('is-dragging'); }
+    handle.addEventListener('pointerup', end);
+    handle.addEventListener('pointercancel', end);
+    // Nach dem Ziehen keinen Link öffnen
+    el.addEventListener('click', function(e){
+      if (moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
+    });
+  });
+  document.addEventListener('pointerdown', function(e){
+    document.querySelectorAll('.is-focus').forEach(function(f){ if (!f.contains(e.target)) f.classList.remove('is-focus'); });
+  });
+})();
+</script>
 
 <script src="lenis.min.js"></script>
 <script src="motion.js"></script>
