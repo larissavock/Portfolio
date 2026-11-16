@@ -1651,3 +1651,13 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
   .dt-text .dt-titlebar{ padding-left: 56px; }
   .dt-photo .dt-title{ transform: none; margin: 0 0 0 auto; padding-right: 6px; }
 }
+/* Ordner in Rosa & Beige */
+.folder-rosa .f-back{ fill: #C9958B; }
+.folder-rosa .f-front{ fill: var(--red-soft); stroke: rgba(255,255,255,0.35); }
+.folder-cream .f-back{ fill: #D6BFB2; }
+.folder-cream .f-front{ fill: var(--cream); stroke: rgba(255,255,255,0.45); }
+.dt-folder .f-tag{ fill: var(--black); }
+.dt-folder .f-tag-txt{ fill: var(--cream); }
+.a-bg-rosa{ fill: var(--red-soft); }
+.m-env{ fill: none; stroke: var(--black); stroke-width: 3.5; }
+.m-flap{ fill: none; stroke: var(--black); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
