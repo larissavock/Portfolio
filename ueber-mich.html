@@ -112,7 +112,7 @@
 
   <section id="erfahrung" class="alt" data-checkpoint="Hundschopf">
     <div class="content-block cv-block">
-    <div class="eyebrow lt mono"><span class="lt-num">ZZ1</span><span class="lt-txt">HUNDSCHOPF</span></div>
+    <div class="eyebrow lt mono"><span class="lt-num">01</span><span class="lt-txt">HUNDSCHOPF</span></div>
     <h2 data-split>Berufserfahrung</h2>
 
     <div class="cv-list">
@@ -159,7 +159,7 @@
 
   <section id="ausbildung" class="align-right" data-checkpoint="Minschkante">
     <div class="content-block edu-block">
-    <div class="eyebrow lt mono"><span class="lt-num">ZZ2</span><span class="lt-txt">MINSCHKANTE</span></div>
+    <div class="eyebrow lt mono"><span class="lt-num">02</span><span class="lt-txt">MINSCHKANTE</span></div>
     <h2 data-split>Ausbildung</h2>
     <div class="edu-grid">
       <article class="edu-tile is-current">
@@ -178,7 +178,7 @@
 
   <section id="skills" class="alt" data-checkpoint="Silberhornsprung">
     <div class="content-block skills-block">
-    <div class="eyebrow lt mono"><span class="lt-num">ZZ3</span><span class="lt-txt">SILBERHORNSPRUNG</span></div>
+    <div class="eyebrow lt mono"><span class="lt-num">03</span><span class="lt-txt">SILBERHORNSPRUNG</span></div>
     <h2 data-split>Kompetenzen</h2>
     <div class="sk-grid">
       <div class="sk-cell">
@@ -225,7 +225,7 @@
 
   <section class="align-right" data-checkpoint="Seilersprung">
     <div class="content-block">
-    <div class="eyebrow lt mono"><span class="lt-num">ZZ4</span><span class="lt-txt">SEILERSPRUNG</span></div>
+    <div class="eyebrow lt mono"><span class="lt-num">04</span><span class="lt-txt">SEILERSPRUNG</span></div>
     <h2 data-split>Neben der Piste</h2>
     <p class="desc">Neben dem Beruflichen bewegen mich vor allem drei Dinge: Sport, Musik und das Reisen.</p>
 
@@ -342,7 +342,7 @@
     gate.className = 'gate';
     gate.style.left = xs[i] + '%';
     gate.style.top = (ys[i] / 10) + '%';
-    gate.innerHTML = '<span class="gate-poles"></span><span class="gate-tick"></span><span class="gate-label mono"><b>ZZ' + i + '</b> ' + sec.dataset.checkpoint.toUpperCase() + ' <em class="gate-time"></em></span>';
+    gate.innerHTML = '<span class="gate-poles"></span><span class="gate-tick"></span><span class="gate-label mono"><b>0' + i + '</b> ' + sec.dataset.checkpoint.toUpperCase() + ' <em class="gate-time"></em></span>';
     if (i === sections.length - 1){ gate.classList.add('finish-gate'); gate.innerHTML = '<span class="gate-poles"></span><span class="gate-tick"></span><span class="gate-label mono"><b>ZIEL</b> <em class="gate-time"></em></span>'; }
     if (xs[i] > 60) gate.classList.add('label-left');
     trackGatesBg.appendChild(gate);
