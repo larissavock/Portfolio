@@ -31,7 +31,7 @@
 </div>
 
 <div class="track-gates-bg" id="trackGatesBg" aria-hidden="true">
-  <div class="starthaus tv-start" id="starthaus"><span class="tv-start-tick"></span><span class="gate-label mono"><b>START</b> 2315 M</span></div>
+  <div class="starthaus tv-start" id="starthaus"><span class="gate-poles"></span><span class="tv-start-tick"></span><span class="gate-label mono"><b>START</b> 2315 M</span></div>
 </div>
 
 <div class="track-markers" id="trackMarkers" aria-hidden="true">
@@ -294,8 +294,8 @@
     gate.className = 'gate';
     gate.style.left = xs[i] + '%';
     gate.style.top = (ys[i] / 10) + '%';
-    gate.innerHTML = '<span class="gate-tick"></span><span class="gate-label mono"><b>ZZ' + i + '</b> ' + sec.dataset.checkpoint.toUpperCase() + ' <em class="gate-time"></em></span>';
-    if (i === sections.length - 1){ gate.classList.add('finish-gate'); gate.innerHTML = '<span class="gate-tick"></span><span class="gate-label mono"><b>ZIEL</b> <em class="gate-time"></em></span>'; }
+    gate.innerHTML = '<span class="gate-poles"></span><span class="gate-tick"></span><span class="gate-label mono"><b>ZZ' + i + '</b> ' + sec.dataset.checkpoint.toUpperCase() + ' <em class="gate-time"></em></span>';
+    if (i === sections.length - 1){ gate.classList.add('finish-gate'); gate.innerHTML = '<span class="gate-poles"></span><span class="gate-tick"></span><span class="gate-label mono"><b>ZIEL</b> <em class="gate-time"></em></span>'; }
     if (xs[i] > 60) gate.classList.add('label-left');
     trackGatesBg.appendChild(gate);
     return gate;

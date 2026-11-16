@@ -1818,3 +1818,27 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
 @media (max-width: 700px){
   .gate .gate-label, .starthaus .gate-label{ display: none; }
 }
+/* Tore: zwei Stangen mit Torflagge, schlicht */
+.gate-tick, .tv-start-tick{ width: 0 !important; background: none !important; }
+.gate-tick::after, .tv-start-tick::after{ width: 6px; height: 6px; }
+.gate-poles{
+  position: absolute; left: 0; bottom: 0; width: 20px; height: 26px; transform: translateX(-50%);
+  border-left: 2px solid rgba(243,227,218,0.55); border-right: 2px solid rgba(243,227,218,0.55);
+  transition: border-color 0.3s ease, transform 0.4s var(--ease-out);
+}
+.gate-poles::before{
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 10px;
+  background: rgba(243,227,218,0.22); transition: background 0.3s ease;
+}
+.gate.passed .gate-poles, .starthaus .gate-poles{ border-color: var(--cream); }
+.gate.passed .gate-poles::before, .starthaus .gate-poles::before{ background: var(--red-soft); }
+.gate.active .gate-poles{ transform: translateX(-50%) scale(1.15); }
+.gate.finish-gate .gate-poles{ width: 34px; height: 32px; border-color: var(--cream); }
+.gate.finish-gate .gate-poles::before{
+  height: 9px; background-color: var(--cream);
+  background-image: linear-gradient(45deg, var(--black-deep) 25%, transparent 25%, transparent 75%, var(--black-deep) 75%),
+                    linear-gradient(45deg, var(--black-deep) 25%, transparent 25%, transparent 75%, var(--black-deep) 75%);
+  background-size: 6px 6px; background-position: 0 0, 3px 3px;
+}
+.gate .gate-label, .starthaus .gate-label{ top: -14px; }
+.gate.finish-gate .gate-label{ top: -16px; }
