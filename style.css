@@ -1423,3 +1423,231 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
   -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
 }
+
+/* =========================================================
+   STARTSEITE — "Larissas Desktop"
+   ========================================================= */
+.dt-body{ background: var(--black-deep); }
+.dt-desktop{
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 110px 4vw 130px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 600px at 50% 45%, rgba(62,98,72,0.55), transparent 70%),
+    radial-gradient(700px 500px at 100% 100%, rgba(193,127,118,0.10), transparent 70%),
+    linear-gradient(180deg, #1F3B29 0%, #17301F 100%);
+}
+/* feines Punktraster wie eine Arbeitsfläche */
+.dt-desktop::before{
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(243,227,218,0.09) 1px, transparent 1.2px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+}
+
+/* Menüleiste */
+.dt-menubar{
+  position: fixed; top: 16px; left: 16px; right: 16px; z-index: 300;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  pointer-events: none;
+}
+.dt-menubar > *, .dt-menubar-right > *{ pointer-events: auto; }
+.dt-menubar-right{ display: flex; gap: 10px; align-items: stretch; }
+.dt-chip{
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(243,227,218,0.94);
+  color: var(--black);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font: 600 13px/1.2 'Manrope', sans-serif;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(5,15,9,0.25);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.dt-brand{ font-weight: 700; letter-spacing: 0.06em; }
+.dt-brand span{ color: var(--red); margin-left: 1px; }
+.dt-status b{ color: var(--red); font-weight: 700; margin-right: 4px; }
+.dt-status-sub{
+  font-weight: 500; font-size: 12px; color: rgba(31,59,41,0.7);
+  padding-left: 10px; border-left: 1px solid rgba(31,59,41,0.2);
+}
+.dt-dot{
+  width: 8px; height: 8px; border-radius: 50%; background: #3FA36B; flex: none;
+  box-shadow: 0 0 0 0 rgba(63,163,107,0.6); animation: dtPulse 2.4s ease-out infinite;
+}
+@keyframes dtPulse{ 0%{ box-shadow: 0 0 0 0 rgba(63,163,107,0.55); } 70%,100%{ box-shadow: 0 0 0 8px rgba(63,163,107,0); } }
+.dt-clock{ font-size: 12px; font-weight: 400; letter-spacing: 0.04em; min-width: 150px; justify-content: center; }
+
+/* Fenster */
+.dt-windows{
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.dt-window{
+  position: relative;
+  background: var(--cream);
+  color: var(--black);
+  border-radius: 14px;
+  box-shadow: 0 30px 80px rgba(5,15,9,0.5), 0 2px 0 rgba(255,255,255,0.4) inset;
+  overflow: visible;
+  animation: dtWinIn 1s var(--ease-out) var(--d, 0ms) both;
+  transition: box-shadow 0.3s ease;
+}
+.dt-window.is-dragging{ box-shadow: 0 40px 100px rgba(5,15,9,0.6); }
+@keyframes dtWinIn{ from{ opacity: 0; transform: translateY(30px) scale(0.96); } to{ opacity: 1; transform: none; } }
+.dt-titlebar{
+  display: flex; align-items: center; gap: 12px;
+  padding: 11px 14px;
+  border-bottom: 1px solid rgba(31,59,41,0.1);
+  cursor: grab; user-select: none; touch-action: none;
+}
+.is-dragging .dt-titlebar{ cursor: grabbing; }
+.dt-lights{ display: flex; gap: 6px; }
+.dt-lights i{ width: 10px; height: 10px; border-radius: 50%; background: var(--red); }
+.dt-lights i:nth-child(2){ background: var(--red-soft); }
+.dt-lights i:nth-child(3){ background: rgba(31,59,41,0.25); }
+.dt-title{ font-size: 11px; letter-spacing: 0.08em; color: rgba(31,59,41,0.6); margin: 0 auto; transform: translateX(-27px); }
+
+.dt-photo{ width: 290px; margin-right: -36px; margin-top: -70px; z-index: 2; }
+.dt-photo-img{ padding: 10px; }
+.dt-photo-img img{
+  display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 18%;
+  border-radius: 8px; pointer-events: none;
+}
+.dt-filetag{
+  position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%);
+  background: var(--red); color: var(--cream);
+  font-size: 11px; letter-spacing: 0.06em; padding: 6px 12px; border-radius: 6px; white-space: nowrap;
+}
+
+.dt-text{ width: min(600px, 52vw); z-index: 1; }
+.dt-text-body{ padding: 30px 40px 36px 64px; }
+.dt-text h1{
+  font-size: clamp(3rem, 5.4vw, 5rem); line-height: 0.95; font-weight: 400;
+  color: var(--black); margin-bottom: 14px;
+}
+.dt-text h1 > span{ color: var(--red); }
+.dt-text .home-tagline{ color: var(--red); font-size: 11px; letter-spacing: 0.24em; margin-bottom: 18px; }
+.dt-text .home-story{ color: rgba(31,59,41,0.85); font-size: 1rem; line-height: 1.7; max-width: none; margin: 0; }
+
+/* Icons */
+.dt-icons{ position: absolute; inset: 0; pointer-events: none; }
+.dt-icons .dt-icon{ z-index: 1; }
+.dt-icon{
+  position: absolute; left: var(--x); top: var(--y);
+  width: 120px; margin-left: -60px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-decoration: none; color: var(--cream);
+  pointer-events: auto; cursor: pointer; user-select: none; touch-action: none;
+  animation: dtIconIn 0.8s var(--ease-out) var(--d, 0ms) both;
+}
+@keyframes dtIconIn{ from{ opacity: 0; transform: translateY(14px) scale(0.9); } to{ opacity: 1; transform: none; } }
+.dt-icon svg{ width: 84px; height: 72px; overflow: visible; transition: transform 0.35s var(--ease-out); filter: drop-shadow(0 10px 18px rgba(5,15,9,0.4)); }
+.dt-icon:hover svg{ transform: translateY(-4px) scale(1.05); }
+.dt-icon.is-dragging{ cursor: grabbing; }
+.dt-icon.is-dragging svg{ transform: scale(1.08); }
+.dt-label{
+  font: 600 12px/1.2 'Manrope', sans-serif; letter-spacing: 0.06em;
+  padding: 4px 8px; border-radius: 5px; transition: background 0.2s ease, color 0.2s ease;
+}
+.dt-icon:hover .dt-label, .dt-icon.is-focus .dt-label, .dt-icon:focus-visible .dt-label{ background: var(--red); color: var(--cream); }
+.dt-hint{ font-size: 10px; letter-spacing: 0.1em; color: rgba(243,227,218,0.5); margin-top: -6px; }
+
+.f-back{ fill: #0E2016; }
+.f-front{ fill: #142A1C; stroke: rgba(243,227,218,0.14); stroke-width: 1; }
+.f-tag-txt, .d-tag-txt{ font: 700 7.5px 'Space Mono', monospace; fill: var(--cream); text-anchor: middle; letter-spacing: 0.04em; }
+.d-page{ fill: var(--cream); }
+.d-fold{ fill: #E3CFC4; }
+.d-line{ fill: rgba(31,59,41,0.22); }
+.d-tag{ fill: var(--red); }
+.dt-icon .dt-doc{ width: 66px; }
+.a-bg{ fill: var(--cream); }
+.a-txt{ font: 700 34px 'Manrope', sans-serif; fill: var(--black); text-anchor: middle; }
+.dt-icon .dt-app{ width: 66px; }
+
+/* Dock */
+.dt-dock{
+  position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 300;
+  display: flex; align-items: center; gap: 36px;
+  background: rgba(14,32,22,0.92);
+  border: 1px solid rgba(243,227,218,0.14);
+  border-radius: 16px;
+  padding: 12px 26px 12px 20px;
+  box-shadow: 0 16px 40px rgba(5,15,9,0.45);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: dtDockIn 0.9s var(--ease-out) 0.4s both;
+}
+@keyframes dtDockIn{ from{ opacity: 0; transform: translate(-50%, 30px); } to{ opacity: 1; transform: translate(-50%, 0); } }
+.dt-dock-logo{ font: 400 30px/1 'Bebas Neue', sans-serif; color: var(--cream); text-decoration: none; }
+.dt-dock-logo span{ color: var(--red); }
+.dt-dock ul{ display: flex; gap: 26px; list-style: none; }
+.dt-dock ul a{
+  font: 600 13px 'Manrope', sans-serif; letter-spacing: 0.08em;
+  color: rgba(243,227,218,0.7); text-decoration: none; padding: 6px 0; position: relative;
+}
+.dt-dock ul a::after{
+  content: ''; position: absolute; left: 50%; bottom: -4px; width: 4px; height: 4px; border-radius: 50%;
+  background: var(--red); transform: translateX(-50%) scale(0); transition: transform 0.3s var(--ease-out);
+}
+.dt-dock ul a:hover{ color: var(--cream); }
+.dt-dock ul a:hover::after, .dt-dock ul a.active::after{ transform: translateX(-50%) scale(1); }
+.dt-dock ul a.active{ color: var(--cream); }
+.dt-body .site-footer{ margin-top: 0; padding-bottom: 120px; }
+
+/* Mittlere Bildschirme */
+@media (max-width: 1180px){
+  .dt-photo{ width: 220px; }
+  .dt-text{ width: 46vw; }
+  .dt-text-body{ padding: 26px 30px 30px 56px; }
+  .dt-text .home-story{ font-size: 0.95rem; }
+}
+
+/* Tablet & Handy: Fenster untereinander, Icons als Raster */
+@media (max-width: 899px){
+  .dt-desktop{ display: block; padding: 100px 16px 110px; }
+  .dt-menubar{ top: 10px; left: 10px; right: 10px; flex-wrap: wrap; }
+  .dt-menubar-right{ flex-wrap: wrap; justify-content: flex-end; }
+  .dt-clock{ display: none; }
+  .dt-chip{ padding: 10px 12px; font-size: 12px; }
+  .dt-status{ max-width: 250px; display: grid; grid-template-columns: auto 1fr; column-gap: 8px; row-gap: 3px; }
+  .dt-status .dt-dot{ margin-top: 4px; align-self: start; }
+  .dt-status-sub{ grid-column: 2; border-left: none; padding-left: 0; font-size: 11px; }
+  .dt-windows{ flex-direction: column; gap: 0; }
+  .dt-photo{ width: min(260px, 70vw); margin: 0 0 -30px; transform: rotate(-2deg); align-self: center; }
+  .dt-photo{ animation-name: dtWinInMobile; }
+  @keyframes dtWinInMobile{ from{ opacity: 0; transform: translateY(30px) rotate(-2deg); } to{ opacity: 1; transform: rotate(-2deg); } }
+  .dt-text{ width: 100%; }
+  .dt-text-body{ padding: 50px 22px 28px; }
+  .dt-title{ transform: none; }
+  .dt-icons{
+    position: static; display: grid; grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+    gap: 22px 8px; margin-top: 40px;
+  }
+  .dt-icon{ position: static; width: auto; margin: 0; }
+  .dt-icon svg{ width: 64px; height: 56px; }
+  .dt-icon .dt-doc, .dt-icon .dt-app{ width: 50px; }
+  .dt-label{ font-size: 10.5px; text-align: center; }
+  .dt-hint{ display: none; }
+  .dt-dock{ gap: 16px; padding: 10px 16px; bottom: 12px; width: calc(100% - 24px); justify-content: space-between; }
+  .dt-dock ul{ gap: 14px; }
+  .dt-dock ul a{ font-size: 10.5px; letter-spacing: 0.04em; }
+  .dt-dock-logo{ font-size: 24px; }
+}
+@media (max-width: 420px){
+  .dt-status{ max-width: 190px; }
+  .dt-dock ul a{ font-size: 9.5px; }
+  .dt-dock ul{ gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .dt-window, .dt-icon, .dt-dock, .dt-dot{ animation: none; }
+}
+@media (min-width: 900px){
+  .dt-text .dt-titlebar{ padding-left: 56px; }
+  .dt-photo .dt-title{ transform: none; margin: 0 0 0 auto; padding-right: 6px; }
+}
