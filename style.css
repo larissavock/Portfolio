@@ -1661,3 +1661,412 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
 .a-bg-rosa{ fill: var(--red-soft); }
 .m-env{ fill: none; stroke: var(--black); stroke-width: 3.5; }
 .m-flap{ fill: none; stroke: var(--black); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* =========================================================
+   ÜBER MICH — TV-SPORTGRAFIK
+   ========================================================= */
+/* Strecke: feine Linien statt Pistenband */
+.track-band, .track-edge{ display: none; }
+.track-path{ stroke: var(--cream); stroke-width: 1.2; opacity: 0.22; stroke-dasharray: none; }
+.track-done{ stroke: var(--red-soft); stroke-width: 2.4; filter: none; }
+
+/* Zwischenzeit-Marken */
+.gate, .gate.finish-gate{ width: 0; height: 0; opacity: 1; filter: none; transform: none; }
+.gate::before, .gate::after, .gate.finish-gate::before, .gate.finish-gate::after{ display: none; }
+.gate-tick, .tv-start-tick{
+  position: absolute; left: 0; top: 0; width: 18px; height: 2px; transform: translate(-50%, -50%);
+  background: rgba(243,227,218,0.45); transition: background 0.3s ease, width 0.4s var(--ease-out);
+}
+.gate-tick::after, .tv-start-tick::after{
+  content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 50%;
+  transform: translate(-50%, -50%); background: var(--black-deep); border: 1.5px solid rgba(243,227,218,0.6);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.gate.passed .gate-tick::after, .starthaus .tv-start-tick::after{ background: var(--red-soft); border-color: var(--red-soft); }
+.gate.active .gate-tick{ width: 28px; background: var(--cream); }
+.gate .gate-label, .starthaus .gate-label{
+  position: absolute; top: 0; left: 22px; transform: translateY(-50%);
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; letter-spacing: 0.12em; white-space: nowrap;
+  color: rgba(243,227,218,0.6);
+  background: rgba(14,32,22,0.72); padding: 5px 9px 5px 0; border-radius: 3px;
+  overflow: hidden;
+}
+.gate.label-left .gate-label{ left: auto; right: 22px; }
+.gate-label b{ background: rgba(243,227,218,0.12); color: var(--cream); padding: 5px 7px; margin: -5px 0; font-weight: 700; }
+.gate.passed .gate-label b, .starthaus .gate-label b{ background: var(--red-soft); color: var(--black); }
+.gate.active .gate-label{ color: var(--cream); }
+.gate-time{ font-style: normal; color: var(--cream); font-variant-numeric: tabular-nums; }
+.gate-time:empty{ display: none; }
+.finish-banner{ display: none; }
+.starthaus.tv-start{ width: 0; height: 0; transform: none; opacity: 1; }
+.starthaus.tv-start.active{ transform: none; }
+
+/* Fahrerin: Live-Punkt mit Startnummer */
+.racer{
+  width: 0; height: 0; opacity: 1; filter: none;
+  transform: none; transition: none;
+}
+.racer-dot{
+  position: absolute; left: 0; top: 0; width: 12px; height: 12px; border-radius: 50%;
+  transform: translate(-50%, -50%); background: var(--cream);
+  box-shadow: 0 0 0 4px rgba(227,183,172,0.35), 0 0 18px rgba(227,183,172,0.6);
+}
+.racer-dot::after{
+  content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid var(--red-soft);
+  animation: racerPing 1.8s ease-out infinite;
+}
+@keyframes racerPing{ from{ transform: scale(0.6); opacity: 1; } to{ transform: scale(2.4); opacity: 0; } }
+.racer-tag{
+  position: absolute; left: 14px; top: -26px; white-space: nowrap;
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.1em;
+  background: var(--cream); color: var(--black); padding: 3px 6px; border-radius: 2px;
+}
+
+/* Einblendung oben wie im TV */
+.hud{
+  top: calc(var(--nav-h, 64px) + 12px); left: 50%; right: auto; transform: translateX(-50%);
+  padding: 0; gap: 0; border: none; border-radius: 4px; overflow: hidden;
+  background: rgba(14,32,22,0.94); box-shadow: 0 12px 30px rgba(5,15,9,0.45);
+  align-items: stretch; font-size: 11px; white-space: nowrap;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.hud-bib{
+  display: flex; align-items: center; justify-content: center;
+  background: var(--red-soft); color: var(--black); font-weight: 700; font-size: 15px; min-width: 38px;
+}
+.hud-name{
+  display: flex; align-items: center; gap: 8px; padding: 0 14px;
+  background: var(--cream); color: var(--black);
+  font: 800 14px 'Manrope', sans-serif; letter-spacing: 0.04em;
+}
+.hud-name small{ font-weight: 500; font-size: 13px; letter-spacing: 0; }
+.hud-name i{ font-style: normal; font-size: 10px; color: var(--red); letter-spacing: 0.1em; }
+.hud-seg{ display: flex; align-items: center; gap: 22px; padding: 9px 18px 11px; }
+.hud .current{ font-size: 10.5px; letter-spacing: 0.12em; color: var(--red-soft); font-weight: 700; min-width: 15ch; }
+.hud .item{ font-size: 10.5px; }
+.hud-live{
+  display: flex; align-items: center; gap: 6px; padding: 0 14px;
+  border-left: 1px solid rgba(243,227,218,0.12);
+  font-size: 10px; letter-spacing: 0.14em; color: var(--cream);
+}
+.hud-live i, .kicker-live i{
+  width: 7px; height: 7px; border-radius: 50%; background: #E0524A; display: inline-block;
+  animation: liveBlink 1.6s ease-in-out infinite;
+}
+@keyframes liveBlink{ 50%{ opacity: 0.25; } }
+.hud .hud-bar{ height: 2px; background: rgba(243,227,218,0.1); }
+.hud .hud-bar span{ background: var(--red-soft); }
+
+/* LIVE im Willkommen-Kicker */
+.kicker-live{
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(224,82,74,0.14); color: var(--cream); border: 1px solid rgba(224,82,74,0.4);
+  padding: 4px 9px; border-radius: 3px; margin-right: 14px; letter-spacing: 0.16em;
+}
+
+/* Bauchbinden statt Pillen */
+.track-main .eyebrow.lt, #ziel .eyebrow.lt{
+  display: inline-flex; align-items: stretch; padding: 0; gap: 0;
+  background: none; border: none; border-radius: 3px; overflow: hidden;
+  font-size: 11px; letter-spacing: 0.14em; margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(5,15,9,0.25);
+}
+.lt-num{ background: var(--red-soft); color: var(--black); font-weight: 700; padding: 6px 10px; }
+.lt-txt{ background: var(--cream); color: var(--black); padding: 6px 12px; }
+
+/* Karten: etwas klarer, eckiger */
+.content-block{ border-radius: 10px; }
+.track-main ul.bullets li::marker{ color: var(--red-soft); }
+
+/* Ergebnistafel im Ziel */
+.result-board{ margin: 18px 0 26px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(243,227,218,0.14); }
+.rb-head{
+  display: flex; justify-content: space-between; gap: 12px;
+  background: rgba(10,26,17,0.75); color: rgba(243,227,218,0.6);
+  font-size: 10px; letter-spacing: 0.16em; padding: 9px 14px;
+}
+.rb-row{ display: grid; grid-template-columns: 46px 1fr auto auto; align-items: center; background: var(--cream); color: var(--black); }
+.rb-rank{ background: var(--red-soft); font-weight: 700; font-size: 18px; text-align: center; padding: 12px 0; }
+.rb-name{ padding: 0 16px; font: 500 16px 'Manrope', sans-serif; }
+.rb-name b{ font-weight: 800; letter-spacing: 0.03em; }
+.rb-nat{ font-size: 11px; letter-spacing: 0.12em; color: var(--red); padding: 0 14px; }
+.rb-time{ font-weight: 700; font-size: 20px; padding: 0 16px; font-variant-numeric: tabular-nums; }
+
+/* Startseite: Stoppuhr am Über-mich-Ordner */
+.f-watch{ fill: none; stroke: var(--cream); stroke-width: 1.5; stroke-linecap: round; }
+
+@media (max-width: 700px){
+  .hud{ top: var(--nav-h, 64px); left: 0; right: 0; transform: none; border-radius: 0; }
+  .hud-name, .hud-live{ display: none; }
+  .hud-bib{ min-width: 30px; font-size: 12px; }
+  .hud-seg{ gap: 10px; padding: 7px 10px 9px; flex: 1; justify-content: space-between; }
+  .hud .current{ min-width: 0; font-size: 9px; }
+  .hud .item{ font-size: 9px; }
+  .racer-tag{ display: none; }
+  .kicker-live{ margin-right: 8px; }
+  .rb-row{ grid-template-columns: 38px 1fr auto; }
+  .rb-nat{ display: none; }
+  .rb-name{ font-size: 14px; padding: 0 10px; }
+  .rb-time{ font-size: 16px; padding: 0 10px; }
+  .rb-head span:last-child{ display: none; }
+}
+@media (prefers-reduced-motion: reduce){
+  .racer-dot::after, .hud-live i, .kicker-live i{ animation: none; }
+}
+.welcome-kicker::before{ display: none; }
+@media (max-width: 700px){
+  .gate .gate-label, .starthaus .gate-label{ display: none; }
+}
+/* Tore: zwei Stangen mit Torflagge, schlicht */
+.gate-tick, .tv-start-tick{ width: 0 !important; background: none !important; }
+.gate-tick::after, .tv-start-tick::after{ width: 6px; height: 6px; }
+.gate-poles{
+  position: absolute; left: 0; bottom: 0; width: 20px; height: 26px; transform: translateX(-50%);
+  border-left: 2px solid rgba(243,227,218,0.55); border-right: 2px solid rgba(243,227,218,0.55);
+  transition: border-color 0.3s ease, transform 0.4s var(--ease-out);
+}
+.gate-poles::before{
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 10px;
+  background: rgba(243,227,218,0.22); transition: background 0.3s ease;
+}
+.gate.passed .gate-poles, .starthaus .gate-poles{ border-color: var(--cream); }
+.gate.passed .gate-poles::before, .starthaus .gate-poles::before{ background: var(--red-soft); }
+.gate.active .gate-poles{ transform: translateX(-50%) scale(1.15); }
+.gate.finish-gate .gate-poles{ width: 34px; height: 32px; border-color: var(--cream); }
+.gate.finish-gate .gate-poles::before{
+  height: 9px; background-color: var(--cream);
+  background-image: linear-gradient(45deg, var(--black-deep) 25%, transparent 25%, transparent 75%, var(--black-deep) 75%),
+                    linear-gradient(45deg, var(--black-deep) 25%, transparent 25%, transparent 75%, var(--black-deep) 75%);
+  background-size: 6px 6px; background-position: 0 0, 3px 3px;
+}
+.gate .gate-label, .starthaus .gate-label{ top: -14px; }
+.gate.finish-gate .gate-label{ top: -16px; }
+
+/* Berge: echter & dynamischer */
+#welcome .mountains-bg{ height: 64%; overflow: visible; }
+.m-rise{ animation: mRise 1.6s var(--ease-out) var(--d, 0ms) both; transform-box: view-box; }
+@keyframes mRise{ from{ transform: translateY(60px); opacity: 0; } to{ transform: none; opacity: 1; } }
+.m-fog{ animation: mFog 38s ease-in-out infinite alternate; }
+.m-fog-2{ animation-duration: 52s; animation-direction: alternate-reverse; }
+@keyframes mFog{ from{ transform: translateX(-120px); } to{ transform: translateX(120px); } }
+.m-glow{ animation: mGlow 9s ease-in-out infinite alternate; }
+@keyframes mGlow{ from{ opacity: 0.7; } to{ opacity: 1; } }
+@media (prefers-reduced-motion: reduce){ .m-rise, .m-fog, .m-glow{ animation: none; } }
+@media (max-width: 700px){
+  .track-main #welcome{ min-height: calc(100svh - var(--nav-h)); }
+  .track-main #welcome .mountains-bg, #welcome .mountains-bg{ height: 40%; }
+  .welcome-kicker{ letter-spacing: 0.14em; font-size: 10px; flex-wrap: wrap; }
+}
+
+/* =========================================================
+   ÜBER MICH — Blöcke mit Variation
+   ========================================================= */
+/* Karten deckend, damit die Strecke nicht durchscheint */
+.content-block{ background: linear-gradient(145deg, #34573F, #2B4A36); }
+.content-block.is-open{
+  background: none; border: none; box-shadow: none; padding: 0;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.content-block.is-open:hover{ box-shadow: none; }
+
+/* Start: Startliste statt Karte */
+.track-main #hero{ min-height: 34vh; }
+.start-block{ width: min(560px, 100%); }
+.start-board{ margin: 0; box-shadow: 0 20px 50px rgba(5,15,9,0.45); }
+.rb-status{ display: inline-flex; align-items: center; gap: 8px; font-size: 12px !important; letter-spacing: 0.14em; color: var(--black); }
+.rb-status i{ width: 8px; height: 8px; border-radius: 50%; background: #3FA36B; animation: liveBlink 1.4s ease-in-out infinite; }
+
+/* Berufserfahrung: Zeitleiste */
+.cv-block{ width: 860px; }
+.cv-list{ margin-top: 8px; }
+.cv-item{
+  display: grid; grid-template-columns: 150px 1fr; gap: 24px;
+  padding: 22px 0; border-top: 1px solid rgba(243,227,218,0.12);
+}
+.cv-item:first-child{ border-top: none; padding-top: 10px; }
+.cv-date{ font-size: 12px; letter-spacing: 0.06em; color: var(--red-soft); padding-top: 4px; }
+.cv-body h3, .edu-tile h3{
+  font-family: 'Manrope', sans-serif; text-transform: none; letter-spacing: 0;
+  font-size: 1.15rem; font-weight: 700; line-height: 1.3;
+}
+.cv-tag{ font-size: 10px; font-weight: 400; letter-spacing: 0.1em; color: rgba(243,227,218,0.6); border: 1px solid rgba(243,227,218,0.25); border-radius: 3px; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
+.cv-org{ color: rgba(243,227,218,0.7); font-size: 0.98rem; margin: 2px 0 10px; }
+.cv-body ul.bullets{ margin-top: 0 !important; }
+
+/* Ausbildung: helle Kacheln */
+.edu-block{ width: 760px; }
+.edu-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 6px; }
+.edu-tile{
+  background: var(--cream); color: var(--black); border-radius: 10px; padding: 22px 24px 24px;
+  box-shadow: 0 20px 50px rgba(5,15,9,0.4);
+  transition: transform 0.4s var(--ease-out);
+}
+.edu-tile:hover{ transform: translateY(-4px); }
+.edu-tile .cv-date{ color: var(--red); padding: 0; }
+.edu-top{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.edu-badge{ display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: 0.14em; background: var(--black); color: var(--cream); padding: 4px 8px; border-radius: 3px; }
+.edu-badge i{ width: 6px; height: 6px; border-radius: 50%; background: #3FA36B; animation: liveBlink 1.6s ease-in-out infinite; }
+.edu-tile p{ color: rgba(31,59,41,0.75); font-size: 0.95rem; margin-top: 6px; }
+
+/* Kompetenzen */
+.skills-block{ width: 900px; }
+.sk-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 30px 48px; margin-top: 6px; }
+.sk-grid .tags-label{ margin: 0 0 12px; font-size: 11px; letter-spacing: 0.16em; color: var(--red-soft); }
+.sk-grid .tags{ margin-top: 0; gap: 8px; }
+.sk-grid .tag{ font-family: 'Manrope', sans-serif; font-size: 13px; padding: 7px 14px; border-radius: 999px; }
+.tags-soft .tag{ background: rgba(243,227,218,0.07); border-color: rgba(243,227,218,0.16); color: rgba(243,227,218,0.9); }
+.tag small{ font-size: 11px; color: rgba(243,227,218,0.55); margin-left: 4px; }
+.lang-row{ display: grid; grid-template-columns: 96px 1fr auto; align-items: center; gap: 14px; padding: 7px 0; }
+.lang-name{ font-weight: 600; font-size: 14px; }
+.lang-lvl{ font-size: 11px; letter-spacing: 0.08em; color: rgba(243,227,218,0.7); min-width: 11ch; text-align: right; }
+.cefr{ display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+.cefr i{ height: 6px; border-radius: 2px; background: rgba(243,227,218,0.12); transition: background 0.4s ease; }
+.content-block.in .cefr[data-level="4"] i:nth-child(-n+4),
+.content-block.in .cefr[data-level="5"] i:nth-child(-n+5),
+.content-block.in .cefr[data-level="7"] i{ background: var(--red-soft); }
+.cefr i:nth-child(2){ transition-delay: .08s; } .cefr i:nth-child(3){ transition-delay: .16s; }
+.cefr i:nth-child(4){ transition-delay: .24s; } .cefr i:nth-child(5){ transition-delay: .32s; } .cefr i:nth-child(6){ transition-delay: .4s; }
+
+@media (max-width: 900px){
+  .cv-block, .edu-block, .skills-block{ width: 100%; }
+  .cv-item{ grid-template-columns: 1fr; gap: 6px; }
+  .edu-grid, .sk-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 700px){
+  .track-main #hero{ min-height: 26vh; }
+  .lang-row{ grid-template-columns: 84px 1fr auto; gap: 10px; }
+}
+.lang-lvl{ min-width: 13.5ch; }
+@media (max-width: 700px){ .hud .item:nth-of-type(3){ display: none; } .hud-seg{ overflow: hidden; } }
+/* Datum: ruhiger, in der Textschrift */
+.cv-date{
+  font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.92rem;
+  letter-spacing: 0.01em; font-variant-numeric: tabular-nums; color: var(--red-soft); padding-top: 3px;
+}
+.edu-tile .cv-date{ color: var(--red); font-size: 0.88rem; }
+/* Ausbildung wieder im Block, Kacheln darin */
+.edu-block{ width: 820px; }
+.edu-tile{ box-shadow: 0 10px 24px rgba(5,15,9,0.25); }
+/* Kompetenzen schmaler */
+.skills-block{ width: 780px; }
+.sk-grid{ gap: 28px 40px; }
+
+/* =========================================================
+   KONTAKT — Mail-Fenster im Desktop
+   ========================================================= */
+.dt-contact .dt-photo{ width: 260px; margin-top: 40px; }
+.dt-contact .dt-photo-img img{ object-position: center 28%; }
+.dt-mail{ width: min(620px, 52vw); z-index: 1; }
+.dt-contact .dt-mail .dt-titlebar{ padding-left: 56px; }
+.mail-fields{ padding: 6px 28px 0 64px; }
+.mail-row{ display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(31,59,41,0.1); font-size: 14px; color: var(--black); }
+.mail-k{ width: 62px; flex: none; color: rgba(31,59,41,0.5); }
+.mail-to b{ font-weight: 700; }
+.mail-to{ color: rgba(31,59,41,0.75); word-break: break-word; }
+.mail-body{ padding: 26px 32px 6px 64px; }
+.mail-body h1{ font-size: clamp(2.4rem, 4.2vw, 3.8rem); line-height: 0.98; font-weight: 400; color: var(--black); margin-bottom: 16px; }
+.mail-body h1 > span{ color: var(--red); }
+.mail-body p{ color: rgba(31,59,41,0.85); font-size: 1rem; line-height: 1.65; margin-bottom: 14px; }
+.mail-sig{ color: rgba(31,59,41,0.6) !important; }
+.mail-actions{ display: flex; align-items: center; gap: 16px; padding: 10px 32px 30px 64px; flex-wrap: wrap; }
+.mail-send{
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--black); color: var(--cream); text-decoration: none;
+  font: 700 15px 'Manrope', sans-serif; letter-spacing: 0.04em;
+  padding: 13px 24px; border-radius: 999px;
+  transition: background 0.3s ease, transform 0.3s var(--ease-out);
+}
+.mail-send svg{ width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; transition: transform 0.4s var(--ease-out); }
+.mail-send:hover{ background: var(--red); transform: translateY(-2px); }
+.mail-send:hover svg{ transform: translate(3px, -3px); }
+.mail-hint{ font-size: 10.5px; letter-spacing: 0.08em; color: rgba(31,59,41,0.5); }
+@media (max-width: 1180px){
+  .dt-contact .dt-photo{ width: 210px; }
+  .dt-mail{ width: 50vw; }
+  .mail-fields, .mail-body, .mail-actions{ padding-left: 52px; }
+}
+@media (max-width: 899px){
+  .dt-contact .dt-photo{ width: min(220px, 60vw); margin: 0 0 -30px; }
+  .dt-mail{ width: 100%; }
+  .dt-contact .dt-mail .dt-titlebar{ padding-left: 14px; }
+  .mail-fields{ padding: 34px 20px 0; }
+  .mail-body{ padding: 22px 20px 4px; }
+  .mail-actions{ padding: 8px 20px 26px; }
+  .mail-k{ width: 56px; }
+  .mail-row{ font-size: 13px; }
+}
+
+/* =========================================================
+   PORTFOLIO — Projekte mit grossen Bildern
+   ========================================================= */
+.portfolio-wrap{ max-width: 1440px; margin: 0 auto; padding: calc(var(--nav-h) + 6vw) 6vw 8vw; }
+.work-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.work{
+  display: flex; flex-direction: column; text-decoration: none; color: var(--cream);
+  background: #2B4A36; border: 1px solid rgba(243,227,218,0.1); border-radius: 12px; overflow: hidden;
+  transition: transform 0.5s var(--ease-out), border-color 0.4s ease, box-shadow 0.5s var(--ease-out);
+}
+.work:hover{ transform: translateY(-6px); border-color: rgba(227,183,172,0.5); box-shadow: 0 30px 60px rgba(5,15,9,0.45); }
+.work-img{ position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--black-deep); }
+.work-img img{ width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.1s var(--ease-out); }
+.work-img img.pos-top{ object-position: center 12%; }
+.work-img img.pos-video-noemi{ object-position: center 30%; }
+.work:hover .work-img img{ transform: scale(1.06); }
+.work-cat{
+  position: absolute; left: 14px; top: 14px; font-size: 10px; letter-spacing: 0.12em;
+  background: var(--cream); color: var(--black); padding: 5px 9px; border-radius: 3px;
+}
+.work-body{ display: flex; flex-direction: column; gap: 8px; padding: 20px 22px 22px; flex: 1; }
+.work-meta{ font-size: 10.5px; letter-spacing: 0.1em; color: var(--red-soft); text-transform: uppercase; }
+.work-body h3{ font-size: 1.7rem; line-height: 1.02; font-weight: 400; }
+.work-body p{ font-size: 0.93rem; line-height: 1.6; color: rgba(243,227,218,0.75); }
+.work-link{ margin-top: auto; padding-top: 6px; font: 700 0.85rem 'Manrope', sans-serif; color: var(--red-soft); }
+.work-link i{ font-style: normal; display: inline-block; transition: transform 0.4s var(--ease-out); }
+.work:hover .work-link{ color: var(--cream); }
+.work:hover .work-link i{ transform: translateX(6px); }
+
+/* Hervorgehobenes Projekt */
+.work-featured{ grid-column: 1 / -1; flex-direction: row; }
+.work-featured .work-img{ flex: 0 0 58%; aspect-ratio: 16 / 10; }
+.work-featured .work-body{ justify-content: center; padding: 40px 44px; gap: 12px; }
+.work-featured h3{ font-size: clamp(2.2rem, 3.6vw, 3.4rem); }
+.work-featured p{ font-size: 1.02rem; max-width: 460px; }
+.work-featured .work-meta::before{ content: '★ HIGHLIGHT · '; color: var(--cream); }
+.work-featured .work-link{ margin-top: 10px; }
+
+@media (max-width: 1200px){ .work-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px){
+  .work-featured{ flex-direction: column; }
+  .work-featured .work-img{ flex: none; aspect-ratio: 4 / 3; }
+  .work-featured .work-body{ padding: 22px; }
+}
+@media (max-width: 600px){
+  .work-grid{ grid-template-columns: 1fr; gap: 18px; }
+  .portfolio-wrap{ padding: calc(var(--nav-h) + 36px) 16px 60px; }
+}
+/* Portfolio: 5 gleich grosse Projekte, 3 + 2 */
+.work-grid{ grid-template-columns: repeat(6, 1fr); }
+.work{ grid-column: span 2; }
+.work:nth-child(4), .work:nth-child(5){ grid-column: span 3; }
+.work:nth-child(4) .work-img, .work:nth-child(5) .work-img{ aspect-ratio: 16 / 9; }
+@media (max-width: 1100px){
+  .work-grid{ grid-template-columns: repeat(2, 1fr); }
+  .work, .work:nth-child(4){ grid-column: span 1; }
+  .work:nth-child(5){ grid-column: 1 / -1; }
+  .work:nth-child(4) .work-img{ aspect-ratio: 4 / 3; }
+}
+@media (max-width: 600px){
+  .work-grid{ grid-template-columns: 1fr; }
+  .work, .work:nth-child(4), .work:nth-child(5){ grid-column: auto; }
+  .work:nth-child(5) .work-img{ aspect-ratio: 4 / 3; }
+}
+/* Filter aktiv: einfache Spalten */
+.work-grid.is-filtered{ grid-template-columns: repeat(3, 1fr); }
+.work-grid.is-filtered .work{ grid-column: auto; }
+.work-grid.is-filtered .work .work-img{ aspect-ratio: 4 / 3; }
+@media (max-width: 1100px){ .work-grid.is-filtered{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px){ .work-grid.is-filtered{ grid-template-columns: 1fr; } }
+/* Kontakt-Titel etwas kleiner (längerer Satz) */
+.dt-contact .mail-body h1{ font-size: clamp(2.2rem, 3.8vw, 3.4rem); }
+.work-cat{ font: 700 10.5px/1 'Manrope', sans-serif; letter-spacing: 0.1em; padding: 6px 10px; }

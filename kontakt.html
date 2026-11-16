@@ -9,32 +9,112 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dt-body">
 
-<nav class="site-nav">
-  <a href="index.html" class="logo">LARISSA<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="index.html">START</a></li>
-    <li><a href="ueber-mich.html">ÜBER MICH</a></li>
-    <li><a href="portfolio.html">PORTFOLIO</a></li>
-    <li><a href="kontakt.html" class="active">KONTAKT</a></li>
-  </ul>
-</nav>
-
-<div class="page">
-  <section class="home-hero">
-    <div class="home-photo">
-      <img src="larissa-photo-kontakt.jpg" alt="Larissa Vock" class="photo-kontakt">
+<!-- Menüleiste oben -->
+<header class="dt-menubar">
+  <a href="index.html" class="dt-chip dt-brand">LARISSA VOCK</a>
+  <div class="dt-menubar-right">
+    <div class="dt-chip dt-status">
+      <i class="dt-dot" aria-hidden="true"></i>
+      <span><b>Aktuell</b> Praktikantin Marketingkreation · SRF</span>
+      <span class="dt-status-sub">Studium ZHAW</span>
     </div>
-    <div class="home-text">
-      <h1 data-split>Habe ich dein Interesse geweckt?<br><span>Kontaktiere mich.</span></h1>
-      <div class="cta-row">
-        <a href="mailto:larissa.vock@bluewin.ch" class="cta-btn green">SCHREIB MIR EINE E-MAIL</a>
-        <a href="https://www.linkedin.com/in/larissa-vock-81aab3216/" target="_blank" rel="noopener" class="cta-btn green">LINKEDIN-PROFIL</a>
+    <div class="dt-chip dt-clock mono" id="dtClock" aria-label="Uhrzeit in Zürich">&nbsp;</div>
+  </div>
+</header>
+
+<main class="dt-desktop dt-contact" id="desktop">
+
+  <div class="dt-windows">
+    <div class="dt-window dt-photo" data-drag style="--d:150ms">
+      <div class="dt-titlebar" data-handle>
+        <span class="dt-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="dt-title mono">LARISSA_VOCK.jpg</span>
+      </div>
+      <div class="dt-photo-img"><img src="larissa-photo-kontakt.jpg" alt="Larissa Vock" draggable="false" class="photo-kontakt"></div>
+      <div class="dt-filetag mono">LARISSA_VOCK.jpg</div>
+    </div>
+
+    <div class="dt-window dt-mail" data-drag style="--d:300ms">
+      <div class="dt-titlebar" data-handle>
+        <span class="dt-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="dt-title mono">Neue Nachricht</span>
+      </div>
+      <div class="mail-fields">
+        <div class="mail-row"><span class="mail-k">An:</span><span class="mail-to"><b>Larissa Vock</b> &lt;larissa.vock@bluewin.ch&gt;</span></div>
+        <div class="mail-row"><span class="mail-k">Betreff:</span><span>Zusammenarbeit</span></div>
+      </div>
+      <div class="mail-body">
+        <h1 data-split>Lust, gemeinsam den <span>nächsten Schritt zu gehen?</span></h1>
+        <p>Danke, dass du dir die Zeit für mein Portfolio genommen hast. Ich freue mich darauf, dich in einem persönlichen Gespräch kennenzulernen und zu zeigen, was ich in dein Team einbringen kann.</p>
+        <p class="mail-sig">Herzliche Grüsse<br>Larissa</p>
+      </div>
+      <div class="mail-actions">
+        <a class="mail-send" href="mailto:larissa.vock@bluewin.ch?subject=Zusammenarbeit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 21 3l-7.5 18-2.6-7.4z"/><path d="M10.9 13.6 21 3"/></svg>
+          Senden
+        </a>
+        <span class="mail-hint mono">öffnet dein Mailprogramm</span>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+
+  <nav class="dt-icons" aria-label="Desktop">
+    <a class="dt-icon" href="Lebenslauf_Larissa_Vock.pdf" download data-drag style="--x:9%; --y:24%; --d:700ms">
+      <svg class="dt-doc" viewBox="0 0 76 92" aria-hidden="true">
+        <path d="M8 4 H50 L70 24 V84 Q70 88 66 88 H8 Q4 88 4 84 V8 Q4 4 8 4 Z" class="d-page"/>
+        <path d="M50 4 V20 Q50 24 54 24 H70" class="d-fold"/>
+        <rect x="12" y="36" width="40" height="3" rx="1.5" class="d-line"/>
+        <rect x="12" y="44" width="48" height="3" rx="1.5" class="d-line"/>
+        <rect x="12" y="52" width="34" height="3" rx="1.5" class="d-line"/>
+        <rect x="12" y="66" width="30" height="14" rx="2" class="d-tag"/>
+        <text x="27" y="76.5" class="d-tag-txt">PDF</text>
+      </svg>
+      <span class="dt-label">LEBENSLAUF.pdf</span>
+    </a>
+
+    <a class="dt-icon" href="https://www.linkedin.com/in/larissa-vock-81aab3216/" target="_blank" rel="noopener" data-drag style="--x:90%; --y:24%; --d:820ms">
+      <svg class="dt-app" viewBox="0 0 80 80" aria-hidden="true">
+        <rect x="4" y="4" width="72" height="72" rx="18" class="a-bg"/>
+        <text x="40" y="52" class="a-txt">in</text>
+      </svg>
+      <span class="dt-label">LINKEDIN.url</span>
+    </a>
+
+
+    <a class="dt-icon" href="portfolio.html" data-drag style="--x:11%; --y:62%; --d:940ms">
+      <svg class="dt-folder folder-rosa" viewBox="0 0 96 76" aria-hidden="true">
+        <path d="M4 10 Q4 4 10 4 H34 Q38 4 40 8 L43 13 H86 Q92 13 92 19 V24 H4 Z" class="f-back"/>
+        <rect x="4" y="20" width="88" height="52" rx="6" class="f-front"/>
+        <rect x="58" y="50" width="28" height="13" rx="2" class="f-tag"/>
+        <text x="72" y="59.5" class="f-tag-txt">WORK</text>
+      </svg>
+      <span class="dt-label">PORTFOLIO</span>
+    </a>
+
+    <a class="dt-icon" href="ueber-mich.html" data-drag style="--x:89%; --y:62%; --d:1060ms">
+      <svg class="dt-folder folder-cream" viewBox="0 0 96 76" aria-hidden="true">
+        <path d="M4 10 Q4 4 10 4 H34 Q38 4 40 8 L43 13 H86 Q92 13 92 19 V24 H4 Z" class="f-back"/>
+        <rect x="4" y="20" width="88" height="52" rx="6" class="f-front"/>
+        <rect x="64" y="46" width="22" height="20" rx="3" class="f-tag"/>
+        <g class="f-watch"><circle cx="75" cy="57.5" r="5.2"/><path d="M75 57.5 L77.4 55.2"/><path d="M73.4 50.4 H76.6 M75 50.4 V52.3"/></g>
+      </svg>
+      <span class="dt-label">ÜBER MICH</span>
+    </a>
+  </nav>
+
+  <!-- Dock unten -->
+  <nav class="dt-dock" aria-label="Hauptnavigation">
+    <a href="index.html" class="dt-dock-logo" aria-label="Start">L<span>.</span></a>
+    <ul>
+      <li><a href="index.html">START</a></li>
+      <li><a href="ueber-mich.html">ÜBER MICH</a></li>
+      <li><a href="portfolio.html">PORTFOLIO</a></li>
+      <li><a href="kontakt.html" class="active">KONTAKT</a></li>
+    </ul>
+  </nav>
+</main>
 
 
 <footer class="site-footer">
@@ -59,6 +139,8 @@
     </div>
   </div>
 </footer>
+
+<script src="desktop.js"></script>
 
 <script src="lenis.min.js"></script>
 <script src="motion.js"></script>
