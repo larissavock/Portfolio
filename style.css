@@ -1996,3 +1996,52 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
   .mail-k{ width: 56px; }
   .mail-row{ font-size: 13px; }
 }
+
+/* =========================================================
+   PORTFOLIO — Projekte mit grossen Bildern
+   ========================================================= */
+.portfolio-wrap{ max-width: 1440px; margin: 0 auto; padding: calc(var(--nav-h) + 6vw) 6vw 8vw; }
+.work-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.work{
+  display: flex; flex-direction: column; text-decoration: none; color: var(--cream);
+  background: #2B4A36; border: 1px solid rgba(243,227,218,0.1); border-radius: 12px; overflow: hidden;
+  transition: transform 0.5s var(--ease-out), border-color 0.4s ease, box-shadow 0.5s var(--ease-out);
+}
+.work:hover{ transform: translateY(-6px); border-color: rgba(227,183,172,0.5); box-shadow: 0 30px 60px rgba(5,15,9,0.45); }
+.work-img{ position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--black-deep); }
+.work-img img{ width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.1s var(--ease-out); }
+.work-img img.pos-top{ object-position: center 12%; }
+.work-img img.pos-video-noemi{ object-position: center 30%; }
+.work:hover .work-img img{ transform: scale(1.06); }
+.work-cat{
+  position: absolute; left: 14px; top: 14px; font-size: 10px; letter-spacing: 0.12em;
+  background: var(--cream); color: var(--black); padding: 5px 9px; border-radius: 3px;
+}
+.work-body{ display: flex; flex-direction: column; gap: 8px; padding: 20px 22px 22px; flex: 1; }
+.work-meta{ font-size: 10.5px; letter-spacing: 0.1em; color: var(--red-soft); text-transform: uppercase; }
+.work-body h3{ font-size: 1.7rem; line-height: 1.02; font-weight: 400; }
+.work-body p{ font-size: 0.93rem; line-height: 1.6; color: rgba(243,227,218,0.75); }
+.work-link{ margin-top: auto; padding-top: 6px; font: 700 0.85rem 'Manrope', sans-serif; color: var(--red-soft); }
+.work-link i{ font-style: normal; display: inline-block; transition: transform 0.4s var(--ease-out); }
+.work:hover .work-link{ color: var(--cream); }
+.work:hover .work-link i{ transform: translateX(6px); }
+
+/* Hervorgehobenes Projekt */
+.work-featured{ grid-column: 1 / -1; flex-direction: row; }
+.work-featured .work-img{ flex: 0 0 58%; aspect-ratio: 16 / 10; }
+.work-featured .work-body{ justify-content: center; padding: 40px 44px; gap: 12px; }
+.work-featured h3{ font-size: clamp(2.2rem, 3.6vw, 3.4rem); }
+.work-featured p{ font-size: 1.02rem; max-width: 460px; }
+.work-featured .work-meta::before{ content: '★ HIGHLIGHT · '; color: var(--cream); }
+.work-featured .work-link{ margin-top: 10px; }
+
+@media (max-width: 1200px){ .work-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px){
+  .work-featured{ flex-direction: column; }
+  .work-featured .work-img{ flex: none; aspect-ratio: 4 / 3; }
+  .work-featured .work-body{ padding: 22px; }
+}
+@media (max-width: 600px){
+  .work-grid{ grid-template-columns: 1fr; gap: 18px; }
+  .portfolio-wrap{ padding: calc(var(--nav-h) + 36px) 16px 60px; }
+}
