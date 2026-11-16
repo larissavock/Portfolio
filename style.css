@@ -1951,3 +1951,48 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
 /* Kompetenzen schmaler */
 .skills-block{ width: 780px; }
 .sk-grid{ gap: 28px 40px; }
+
+/* =========================================================
+   KONTAKT — Mail-Fenster im Desktop
+   ========================================================= */
+.dt-contact .dt-photo{ width: 260px; margin-top: 40px; }
+.dt-contact .dt-photo-img img{ object-position: center 28%; }
+.dt-mail{ width: min(620px, 52vw); z-index: 1; }
+.dt-contact .dt-mail .dt-titlebar{ padding-left: 56px; }
+.mail-fields{ padding: 6px 28px 0 64px; }
+.mail-row{ display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(31,59,41,0.1); font-size: 14px; color: var(--black); }
+.mail-k{ width: 62px; flex: none; color: rgba(31,59,41,0.5); }
+.mail-to b{ font-weight: 700; }
+.mail-to{ color: rgba(31,59,41,0.75); word-break: break-word; }
+.mail-body{ padding: 26px 32px 6px 64px; }
+.mail-body h1{ font-size: clamp(2.4rem, 4.2vw, 3.8rem); line-height: 0.98; font-weight: 400; color: var(--black); margin-bottom: 16px; }
+.mail-body h1 > span{ color: var(--red); }
+.mail-body p{ color: rgba(31,59,41,0.85); font-size: 1rem; line-height: 1.65; margin-bottom: 14px; }
+.mail-sig{ color: rgba(31,59,41,0.6) !important; }
+.mail-actions{ display: flex; align-items: center; gap: 16px; padding: 10px 32px 30px 64px; flex-wrap: wrap; }
+.mail-send{
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--black); color: var(--cream); text-decoration: none;
+  font: 700 15px 'Manrope', sans-serif; letter-spacing: 0.04em;
+  padding: 13px 24px; border-radius: 999px;
+  transition: background 0.3s ease, transform 0.3s var(--ease-out);
+}
+.mail-send svg{ width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; transition: transform 0.4s var(--ease-out); }
+.mail-send:hover{ background: var(--red); transform: translateY(-2px); }
+.mail-send:hover svg{ transform: translate(3px, -3px); }
+.mail-hint{ font-size: 10.5px; letter-spacing: 0.08em; color: rgba(31,59,41,0.5); }
+@media (max-width: 1180px){
+  .dt-contact .dt-photo{ width: 210px; }
+  .dt-mail{ width: 50vw; }
+  .mail-fields, .mail-body, .mail-actions{ padding-left: 52px; }
+}
+@media (max-width: 899px){
+  .dt-contact .dt-photo{ width: min(220px, 60vw); margin: 0 0 -30px; }
+  .dt-mail{ width: 100%; }
+  .dt-contact .dt-mail .dt-titlebar{ padding-left: 14px; }
+  .mail-fields{ padding: 34px 20px 0; }
+  .mail-body{ padding: 22px 20px 4px; }
+  .mail-actions{ padding: 8px 20px 26px; }
+  .mail-k{ width: 56px; }
+  .mail-row{ font-size: 13px; }
+}
