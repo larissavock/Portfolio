@@ -2069,3 +2069,4 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
 @media (max-width: 600px){ .work-grid.is-filtered{ grid-template-columns: 1fr; } }
 /* Kontakt-Titel etwas kleiner (längerer Satz) */
 .dt-contact .mail-body h1{ font-size: clamp(2.2rem, 3.8vw, 3.4rem); }
+.work-cat{ font: 700 10.5px/1 'Manrope', sans-serif; letter-spacing: 0.1em; padding: 6px 10px; }
