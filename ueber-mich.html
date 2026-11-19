@@ -288,6 +288,8 @@
   const hudBar = document.getElementById('hudBar');
   const raceTime = document.getElementById('raceTime');
 
+  // Laufzeit: bei jedem Besuch etwas anders, im realistischen Bereich der Lauberhorn-Abfahrt (2:24–2:31 Min.)
+  const RACE_TIME = 144 + Math.random() * 7.99;
   const ALT_START = 2315;
   const ALT_END = 1287;
 
@@ -426,7 +428,7 @@
       racer.style.setProperty('--dir', dx < 0 ? -1 : 1);
     }
 
-    const t = progress * 148.37;
+    const t = progress * RACE_TIME;
     clock.textContent = formatTime(t);
     raceTime.textContent = formatTime(t);
 
@@ -464,7 +466,7 @@
       const passed = curLen >= gateLens[i] - 0.5;
       g.classList.toggle('passed', passed);
       const tEl = g.querySelector('.gate-time');
-      if (tEl) tEl.textContent = passed ? formatTime(gateLens[i] / totalLength * 148.37) : '';
+      if (tEl) tEl.textContent = passed ? formatTime(gateLens[i] / totalLength * RACE_TIME) : '';
     });
     const idx = sections.indexOf(current);
     checkpointEls.forEach((g, i) => g.classList.toggle('active', i === idx));
