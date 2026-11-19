@@ -2070,3 +2070,4 @@ html.is-leaving body{ opacity: 0; transition: opacity 0.35s ease; }
 /* Kontakt-Titel etwas kleiner (längerer Satz) */
 .dt-contact .mail-body h1{ font-size: clamp(2.2rem, 3.8vw, 3.4rem); }
 .work-cat{ font: 700 10.5px/1 'Manrope', sans-serif; letter-spacing: 0.1em; padding: 6px 10px; }
+.carousel-gag{ margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(243,227,218,0.14); font-style: italic; color: rgba(243,227,218,0.85) !important; }
