@@ -230,7 +230,7 @@
     <div class="content-block">
     <div class="eyebrow lt mono"><span class="lt-num">04</span><span class="lt-txt">SEILERSPRUNG</span></div>
     <h2 data-split>Neben der Piste</h2>
-    <p class="desc">Neben dem Beruflichen bewegen mich vor allem drei Dinge: Sport, Musik und das Reisen.</p>
+    <p class="desc">Abseits vom Beruf treiben mich vor allem drei Dinge an: Sport, Musik und das Reisen.</p>
 
     <div class="carousel" id="interestsCarousel">
       <div class="carousel-track" id="carouselTrack">
@@ -244,11 +244,9 @@
       <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
-    <p class="desc" id="carouselCaption" style="margin-top: 18px;">Sport begleitet mich, seit ich klein bin. Ich bin seit meiner Kindheit im Turnverein, fahre Ski
-    und gehe gerne wandern. Auch probiere ich immer wieder gerne etwas Neues aus.</p>
+    <p class="desc" id="carouselCaption" style="margin-top: 18px;">Sport gehört zu mir, seit ich klein bin: Ich turne seit meiner Kindheit im Turnverein, stehe auf den Ski und bin oft in den Bergen unterwegs. Und wenn sich die Gelegenheit bietet, probiere ich gerne etwas Neues aus.</p>
 
-    <p class="desc" id="carouselGag" style="margin-top: 22px; font-style: italic; display: none;">Und natürlich halte ich das alles am
-    liebsten mit der Kamera fest und produziere eine passende Instagram-Story ;)</p>
+    <p class="desc carousel-gag" id="carouselGag">Und natürlich halte ich das alles am liebsten mit der Kamera fest, die passende Instagram-Story inklusive ;)</p>
     </div>
   </section>
 
@@ -515,10 +513,10 @@
   let current = 0;
 
   const captions = [
-    'Sport begleitet mich, seit ich klein bin. Ich bin seit meiner Kindheit im Turnverein, fahre Ski und gehe gerne wandern. Auch probiere ich immer wieder gerne etwas Neues aus.',
-    'Aber ich bin nicht nur selbst gerne in Bewegung, ich verfolge zudem leidenschaftlich gerne Fussball, Skirennen, Formel 1 und Eishockey.',
-    'Musik gibt mir Energie – am liebsten live. Konzerte und Festivals sind für mich der perfekte Ausgleich zum Alltag.',
-    'Das Reisen fasziniert mich, weil ich dabei neue Landschaften und Kulturen entdecke, Menschen kennenlerne und ihre Geschichten höre. Vor dem Studium war ich ein halbes Jahr in Australien backpacken, danach ging es weiter nach Vietnam und Sri Lanka. Später führten mich meine Reisen auch nach Brasilien und Indonesien.'
+    'Sport gehört zu mir, seit ich klein bin: Ich turne seit meiner Kindheit im Turnverein, stehe auf den Ski und bin oft in den Bergen unterwegs. Und wenn sich die Gelegenheit bietet, probiere ich gerne etwas Neues aus.',
+    'Mindestens so gerne stehe ich am Spielfeldrand: ob Fussball, Skirennen, Formel 1 oder Eishockey. Mich packen die Stimmung im Stadion und die Geschichten hinter den Athletinnen und Athleten.',
+    'Musik gibt mir Energie, am liebsten live. An Konzerten und Festivals fasziniert mich, wie Musik tausende Menschen im selben Moment verbindet.',
+    'Ein halbes Jahr Backpacking in Australien, danach Vietnam, Sri Lanka, Brasilien und Indonesien: Auf Reisen entdecke ich neue Landschaften und Kulturen, und vor allem berühren mich die Menschen mit ihren Geschichten.'
   ];
 
   for (let i = 0; i < slides.length; i++){
@@ -534,7 +532,6 @@
     track.style.transform = `translateX(-${current * 100}%)`;
     Array.from(dots).forEach((dot, idx) => dot.classList.toggle('active', idx === current));
     if (captionEl && captions[current]) captionEl.textContent = captions[current];
-    if (gagEl) gagEl.style.display = (current === slides.length - 1) ? 'block' : 'none';
   }
 
   document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
